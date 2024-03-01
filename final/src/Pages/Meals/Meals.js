@@ -67,7 +67,7 @@ export default function Meals() {
   useEffect(() => {
     fetchData();
   }, []);
-  if (meals) console.log(meals[0].mealDetails[0].price)
+  // if (meals) console.log(meals[0].mealDetails[0].price)
   return (
     <div>
       <section className={style.pageWrapper}>
@@ -94,8 +94,7 @@ export default function Meals() {
                   category={meal.category.name}
                   cook={meal.user.firstName}
                   city={meal.user.address}
-                  price={meal.mealDetails[0].price}
-                  value={meal.value}
+                  price={(meal.mealDetails && meal.mealDetails.find(detail => detail.price) && meal.mealDetails.find(detail => detail.price).price) || 'Price not available'}
                   imagecook={meal.user.image}
                 />
               </div>

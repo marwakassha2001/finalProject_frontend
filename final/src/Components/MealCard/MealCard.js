@@ -8,7 +8,7 @@ import Rating from '@mui/material/Rating';
 import CardMedia from '@mui/material/CardMedia';
 import Avatar from '@mui/material/Avatar';
 
-const MealCard = ({ value, image, title, cook, city, price ,imagecook,category}) => {
+const MealCard = ({image,price, title,cook,city,imagecook,category}) => {
   const [ratingValue, setRatingValue] = useState(4);
 
   return (
@@ -28,9 +28,9 @@ const MealCard = ({ value, image, title, cook, city, price ,imagecook,category})
             readOnly
             sx={{ margin: "0", marginLeft: 1 }}
           />
-          <Typography variant="body2" color="#B55D51" noWrap sx={{ paddingRight: 2 }}>
-            ${price.toFixed(2)}
-          </Typography>
+       <Typography variant="body2" color="#B55D51" noWrap sx={{ paddingRight: 2 }}>
+  ${parseFloat(price).toFixed(2)}
+</Typography>
         </div>
         <CardContent sx={{ paddingBottom: 0 }}>
           <Typography variant="body2" color="text.secondary">
