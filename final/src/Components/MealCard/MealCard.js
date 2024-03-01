@@ -17,7 +17,7 @@ const MealCard = ({ value, image, title, cook, city, price ,imagecook,category})
         <CardMedia
           component="img"
           height="265"
-          src={`${process.env.REACT_APP_IMAGE_PATH}${image}`}
+          src={image}
           alt="Meal"
           sx={{ objectFit: 'cover' ,width:330,paddingBottom:"0.5rem"}}
         />
@@ -46,7 +46,7 @@ const MealCard = ({ value, image, title, cook, city, price ,imagecook,category})
             }
           }}
           avatar={
-            <Avatar alt={cook} src={`${process.env.REACT_APP_IMAGE_PATH}${imagecook}`} />
+            <Avatar alt={cook} src={imagecook} />
           }
           title={cook}
           subheader={category}
