@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import style from "./Meals.module.css";
+import { fetchProducts } from "../../data/mealsData";
+import { Link, useParams } from "react-router-dom";
 import MealCard from '../../Components/MealCard/MealCard';
 import imageFood from "../../Assets/AdobeStock_211143160_Preview.jpeg";
 import imageFood1 from "../../Assets/AdobeStock_203047826_Preview.jpeg";
@@ -7,89 +9,99 @@ import imageFood2 from "../../Assets/AdobeStock_357694106_Preview.jpeg";
 import imageFood3 from "../../Assets/goodimage.jpg";
 import imageCook1 from "../../Assets/shein jackets.jpg";
 import imageCook from "../../Assets/shein Zip front suede biker jackets .jpg";
+import Sidebar from '../../Layouts/Sidebar/Sidebar';
+import { fetchCategory } from "../../data/categoryData";
 
 export default function Meals() {
-  const mealsData = [
-    {
-      id: 1,
-      name: "Fresh and Crunchy Spring Salad",
-      image: imageFood,
-      cook: "Marwa kassha",
-      city: "Tripoli",
-      price: 9.99,
-      value:3,
-      imagecook: imageCook1
-    },
-    {
-      id: 2,
-      name: "Delicious Pasta Carbonara",
-      image: imageFood1,
-      cook: "John Doe",
-      city: "beirut",
-      price: 12.99,
-      value:2.5,
-      imagecook: imageCook
-    },
-    {
-      id: 3,
-      name: "Delicious Pasta Carbonara",
-      image: imageFood2,
-      cook: "layla Hamoud",
-      city: "tripoli",
-      price: 10.99,
-      value:5,
-      imagecook: imageCook1
-    },
-    {
-      id: 4,
-      name: "Delicious Pasta Carbonara",
-      image: imageFood3,
-      cook: "souhair jammal",
-      city: "tripoli",
-      price: 15.99,
-      value:4,
-      imagecook: imageCook
-    },
-    {
-      id: 4,
-      name: "Delicious Pasta Carbonara",
-      image: imageFood3,
-      cook: "souhair jammal",
-      city: "tripoli",
-      price: 15.99,
-      value:4,
-      imagecook: imageCook
-    },
-    {
-      id: 4,
-      name: "Delicious Pasta Carbonara",
-      image: imageFood,
-      cook: "souhair jammal",
-      city: "tripoli",
-      price: 15.99,
-      value:4,
-      imagecook: imageCook1
+  const [meals, setMeals] = useState(null);
+  const productsPerPage = 12;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [checkboxes, setCheckboxes] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const { categoryId } = useParams();
+  const [searchInput, setSearchInput] = useState("");
+  const [isError, setIsError] = useState({ state: false, message: "ok" });
+  const [selectedCategories, setSelectedCategories] = useState(
+    categoryId ? [`${categoryId}`] : []
+  );
+
+
+  async function fetchData() {
+    try {
+      const response = await fetchProducts();
+      if (response) {
+        setMeals(response.data);
+        setIsLoading(false);
+      } else {
+        setIsError({ state: true, message: "Network Error marwa" });
+      }
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-  ];
+  console.log(meals, 'mmmmmmmmmmm')
+  const filteredProducts = meals ? meals.filter((meal) =>
+    meal.user.firstName.toLowerCase().includes(searchInput.toLowerCase())
+  )
+    .filter((meal) => {
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.some(
+          (categoryId) => categoryId === meal.category._id
+        );
 
+      return matchesCategory;
+    }) : [];
+
+  console.log(filteredProducts, 'llllllllll')
+
+
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  if (meals) console.log(meals[0].mealDetails[0].price)
   return (
     <div>
       <section className={style.pageWrapper}>
-        {mealsData.map((meal) => (
-          <div className={style.cardWrapper}>
-          <MealCard
-            key={meal.id}
-            title={meal.name}
-            image={meal.image}
-            cook={meal.cook}
-            city={meal.city}
-            price={meal.price}
-            value={meal.value}
-            imagecook={meal.imagecook}
-          />
+        {(isLoading) ? (<div>Loadinggg!11</div>) : (
+          <div className={style.sidebar}>
+            <Sidebar
+              setSelectedCategories={setSelectedCategories}
+              setSearchInput={setSearchInput}
+              setCheckboxes={setCheckboxes}
+              mealsData={meals}
+            />
+          </div>)}
+        <div className={style.titleCard}>
+          <div >
+            <h1> <p className={style.title}> Meals</p></h1>
           </div>
-        ))}
+          <div className={style.mealscard}>
+            {paginatedProducts && paginatedProducts.map((meal, i) => (
+              <div className={style.cardWrapper}>
+                <MealCard
+                  key={meal.id}
+                  title={meal.name}
+                  image={meal.image}
+                  category={meal.category.name}
+                  cook={meal.user.firstName}
+                  city={meal.user.address}
+                  price={meal.mealDetails[0].price}
+                  value={meal.value}
+                  imagecook={meal.user.image}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   );

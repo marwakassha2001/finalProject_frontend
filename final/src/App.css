@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: 'segoepr';
+  src: url('./Assets//fonts/segoepr.woff') format('woff'),
+    url('./Assets//fonts/segoepr.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

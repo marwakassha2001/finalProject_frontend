@@ -1,6 +1,180 @@
-.homePage{
+.container {
+    display: flex;
+    margin-top: 5rem;
+  }
+  
+  .imageArticle {
+    width: 50%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    background-color: #fcded8;
+    border-radius: 15px;
+  }
+  
+  .imageProduct {
+    width: 95%;
+    border-radius: 15px;
+    margin-left: 3.6rem;
+  }
+  .price{
+    font-weight: normal;
+    color: #974E44;
+    font-size: 1.7rem;
+  }
+  h1{
+    color: #974E44;
+    font-size: 35px;
+    margin-top: -0.5rem;
+  }
+  span{
+    color: #974E44;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .nameContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  
+  .contentArticle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 30px;
+    width: 50%;
+    margin: 0  25px;
+  }
+  
+  
+  .categoryContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+  .quantityContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .quantityControl {
+    display: flex;
+    gap: 20px;
+    border-radius: 10px;
+    align-items: center;
+    border: 1px solid black;
+    padding: 8px 20px;
+  }
+  
+  .descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    column-gap: 20px;
+  }
+  
+  .ingredientsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+    }
+  
+  .weightContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+  .ingredientsList {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+      }
+  .ingred{
+  border-bottom:1px solid #fcded8 ;
+    width:fit-content;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
 
-    width: 200px;
-    height: 200px;
 
-}
+   .ingredientsTable {
+    width: 90%;
+    border-collapse: collapse; /* Merge table borders */
+  }
+  
+  .ingred {
+    border-bottom: 1px solid black; /* Add bottom border */
+    padding-bottom: 5px; /* Add padding to separate ingredients */
+  }
+  .increase,
+  .decrease {
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .categoryContainer span,
+  .colorContainer span,
+  .quantityContainer span,
+  .descriptionContainer span,
+  .ingredientsContainer span,
+  .weightContainer span {
+    width: 100px;
+  }
+  
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  
+  @media screen and (max-width:1500px) {
+    .contentArticle{
+      row-gap: 15px;
+    }
+  }
+  
+  
+  @media screen and (max-width:1250px) {
+    .imageProduct{
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 950px) {
+    .container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 6rem auto;
+    }
+    .imageArticle {
+      width: 100%;
+    }
+    .imageProduct{
+      width: 100%;
+    }
+    .contentArticle {
+      width: fit-content;
+    }
+  }
+  
+  @media screen and (max-width: 750px) {
+    .imageProduct {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 650px) {
+    .addToCart {
+      width: 250px;
+      font-size: 15px;
+      padding: 10px;
+    }
+  }

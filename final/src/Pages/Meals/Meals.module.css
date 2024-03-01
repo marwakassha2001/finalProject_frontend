@@ -1,13 +1,42 @@
 .pageWrapper{
- margin:  0 auto ;
 width: 90%;
+margin: 0 auto;
+gap: 2%;
 display: flex;
+align-items: start;
 flex-direction: row;
-flex-wrap: wrap;
+}
+.mealscard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
+.title{
+    font-size: 45px;
+    color: #B55D51;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    justify-content: start;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 4rem;
+}
+
+.titleCard{
+    display: flex;
+    margin-left: 3rem;
+    margin-top: -1.7rem;
+    flex-direction: column;
+}
+.sidebar{
+   width: 15%; 
+}
+.cardWrapper{
+    transition: 0.2s ease-in-out;
+}
 .cardWrapper:hover{
     transform: scale(1.1);
-    opacity: 0.8;
     cursor: pointer;
+    transition: 0.2s ease-in-out;
 }

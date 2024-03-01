@@ -34,7 +34,6 @@ const Signup = () => {
     const [emailError, setEmailError] = useState(null);
     const [passwordError, setPasswordError] = useState(null);
     const [password, setPassword] = useState();
-    const [city,setCity] = useState();
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -122,18 +121,64 @@ const submitHandler = async (e) => {
           </div>
 
           <div className={Styles.right}>
-            <p className={Styles.Header}> Register </p>
-          <Input placeholder="First Name" firstName={firstName} />
-          <Input placeholder="Last Name" lastName={lastName} />
-          <Input placeholder="Email" firstName={email} />
-          <Input placeholder="Password" password={password} />
-          <Input placeholder="Phone Number" phoneNumber={phoneNumber} />
-          <Input placeholder="City" city={city} />
-          <p>you have an account?Login</p>
+            <p className={Styles.Header}> Register your account </p>
+          <Input placeholder="First Name" firstName={firstName} 
+           value={firstName}
+           onChange={(e) => setFirstName(e.target.value)}
+           />
+          <Input placeholder="Last Name" lastName={lastName}
+               value={lastName}
+               onChange={(e) => setLastName(e.target.value)}
+          />
+          <Input placeholder="Email" firstName={email} 
+                 helperText={!emailError ? "": emailError}
+                 value={email}
+                 onChange={(e) => {
+                   setEmail(e.target.value);
+                   setEmailError(null); // Clear previous error when typing
+                 }}
+                 onBlur={() => {
+                   // Validate email on blur
+                   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+                     email
+                   );
+                   if (!isValidEmail) {
+                    setEmailError("Please enter a valid email address");
+                   }
+                 }}
+          />
+          <Input placeholder="Password" password={password}
+           value={password}
+           type={showPassword ? "text" : "password"}
+           onChange={(e) => {
+             setPassword(e.target.value);
+             setPasswordError(null); // Clear previous error when typing
+           }}
+           onBlur={() => {
+             // Validate password on blur
+             const isValidPassword =
+               /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+             if (!isValidPassword) {
+               setPasswordError(
+                 "Password must be at least 8 characters long and contain at least one letter and one number"
+               );
+             }
+           }}
+          />
+          <Input placeholder="Phone Number" phoneNumber={phoneNumber} 
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}/>
+          <div className={Styles.linkPhrase}>
+              <p className={Styles.p}>Already have one?</p>
+              <NavLink to="/Login" style={{color:"#B55D51"}}>
+                login
+              </NavLink>
+            </div>
           <div className={Styles.buttom}>
           <Button
           size="small"
           variant="contained"
+          onClick={submitHandler}
           sx={{
             bgcolor: "#974E44",
             color: "white",
@@ -143,11 +188,8 @@ const submitHandler = async (e) => {
             },
             textTransform: "none",
           }}
-          // onClick={() => {
-          //   nav("/ProductsPage");
-          // }}
         >
-          Signup
+          {loading ? "Signing up..." : "Sign Up"}
         </Button>
 </div>
           </div>

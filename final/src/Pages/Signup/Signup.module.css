@@ -13,6 +13,12 @@
 .left{
   width: 45%;
 }
+.linkPhrase {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  align-items: center;
+}
 
 .left img{
   border-radius: 20px;
@@ -22,9 +28,9 @@
 
 
 }
-.buttom{
-  width: 5%;
-}
+/* .buttom{
+  width: 0%;
+} */
 .right{
   display: flex;
   gap: 1.4rem;
@@ -34,9 +40,9 @@ margin-top: 1rem;
   flex-direction: column;
   margin-left: 7rem;
 }
-.right input{
-  width: 50%;
-}
+/* .right input{
+  width: 80%;
+} */
 
 
 .main{

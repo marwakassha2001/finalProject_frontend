@@ -182,12 +182,12 @@ function Navbar() {
                   onClick={() => setProfileOpen(!profOpen)}
                   variant="contained"
                   sx={{
-                    bgcolor: "#C86823",
+                    bgcolor: "#b55d4e",
                     transition: "background-color 0.3s ease, color 0.3s ease",
                     height: "2.2rem",
                     textTransform: "none",
                     "&:hover": {
-                      bgcolor: "#A0471D",
+                      bgcolor: "#b55d4e",
                       color: "white",
                     },
                   }}

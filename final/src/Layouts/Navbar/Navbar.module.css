@@ -26,8 +26,8 @@ select {
   width: 100%;
 position:relative;
   /* Add blur effect */
-  backdrop-filter: blur(10px); /* You can adjust the blur amount */
-  background-color: #EBEBEB;
+  /* backdrop-filter: blur(10px); You can adjust the blur amount */
+  background-color:transparent;
 }
 
 .navBar {

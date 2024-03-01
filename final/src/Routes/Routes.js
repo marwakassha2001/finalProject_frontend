@@ -10,6 +10,7 @@ import MealDetails from "../Pages/MealDetails/MealDetails.js";
 import Cart from "../Pages/Cart/Cart.js";
 import Login from "../Pages/Login/Login.js"
 import Signup from "../Pages/Signup/Signup.js";
+import Cooks from "../Pages/Cooks/Cooks.js"
 import Hero from "../Components/Hero/Hero.jsx";
 import Hero1 from "../Components/Hero/Hero1.js";
 
@@ -20,6 +21,7 @@ const AppRouter = () => {
       <Route path="/" element={<Outlet/>}>
         <Route index element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/cook" element={<Cooks/>} />
         <Route path="/meals" element={<Meals />} />
         {/* <Route path="/mealsPage/:categoryId" element={<Products />} /> */}
         <Route path="/mealDetails" element={<MealDetails />} />

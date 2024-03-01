@@ -1,6 +1,7 @@
 import React from "react";
 import Styles from "./Login.module.css";
-import { TextField, IconButton } from "@mui/material";
+import Input from '@mui/material/Input';
+import image from "../../Assets/loginpic.jpg"
 import Button from "@mui/material/Button";
 // import OAuth from "../../Components/OAuth/OAuth.js";
 import { NavLink } from "react-router-dom";
@@ -87,115 +88,64 @@ function Login() {
 
   return (
     <>
-      <main className={Styles.mainContainer}>
-        <section className={Styles.pageContainer}>
-          <div className={Styles.div}>
-            <h1 className={Styles.title}>Login to your account</h1>
-            <div className={Styles.linkPhrase}>
-              <p className={Styles.p}>Don't have one? </p>{" "}
-              <NavLink to="/signup" className={Styles.linkLogin}>
-                Sign Up
+           <main className={Styles.main}>
+        <div className={Styles.mainContainer}>
+          <div className={Styles.left}>
+<img src={image}/>
+          </div>
+
+          <div className={Styles.right}>
+            <p className={Styles.Header}> Register your account </p>
+          <Input placeholder="Email" firstName={email}
+                 value={email}
+                 onChange={(e) => {
+                   setEmail(e.target.value);
+                   setEmailError(null); // Clear previous error when typing
+                 }}
+                 onBlur={() => {
+                   // Validate email on blur
+                   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+                     email
+                   );
+                   if (!isValidEmail) {
+                     setEmailError("Invalid email address");
+                   }
+                 }}
+          />
+          <Input placeholder="Password" password={password} 
+           value={password}
+           type={showPassword ? "text" : "password"}
+           onChange={(e) => {
+             setPassword(e.target.value);
+           }}
+          />
+          <div className={Styles.linkPhrase}>
+              <p className={Styles.p}>Don't have an account?</p>
+              <NavLink to="/Login" style={{color:"#B55D51"}}>
+                signUp
               </NavLink>
             </div>
+          <div className={Styles.buttom}>
+          <Button
+          size="small"
+          variant="contained"
+          onClick={submitHandler}
+          sx={{
+            bgcolor: "#974E44",
+            color: "white",
+            fontSize: "1.3rem",
+            ":hover": {
+              bgcolor: "#B55D51",
+            },
+            textTransform: "none",
+          }}
+        >
+            {loading === true ? "Logging in..." : "Login"}
+        </Button>
+</div>
           </div>
-          <div>
-            <form className={Styles.formContainer}>
-              <div className={Styles.inputContainer}>
-                <TextField
-                  fullWidth
-                  id="outlined-basic"
-                  label="Email"
-                  variant="outlined"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    setEmailError(null); // Clear previous error when typing
-                  }}
-                  onBlur={() => {
-                    // Validate email on blur
-                    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-                      email
-                    );
-                    if (!isValidEmail) {
-                      setEmailError("Invalid email address");
-                    }
-                  }}
-                  sx={{
-                    "& .Mui-focused > .MuiOutlinedInput-notchedOutline ": {
-                      border: "2px solid #C86823 !important",
-                      borderRadius: "4px",
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      border: "1px solid #C86823 ",
-                    },
-                    "& .MuiInputLabel-root.Mui-focused ": {
-                      color: "#C86823 ",
-                    },
-                  }}
-                />
-                <TextField
-                  fullWidth
-                  id="outlined-basic"
-                  label="Password"
-                  variant="outlined"
-                  value={password}
-                  type={showPassword ? "text" : "password"}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleClickShowPassword}
-                          onMouseDown={handleMouseDownPassword}
-                          edge="end"
-                          style={{ color: "#C86823" }}
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{
-                    "& .Mui-focused > .MuiOutlinedInput-notchedOutline ": {
-                      border: "2px solid #C86823 !important",
-                      borderRadius: "4px",
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      border: "1px solid #C86823 ",
-                    },
-                    "& .MuiInputLabel-root.Mui-focused ": {
-                      color: "#C86823 ",
-                    },
-                  }}
-                />
-              </div>
-              <div className={Styles.buttonContainer}>
-                <Button
-                  variant="contained"
-                  onClick={submitHandler}
-                  sx={{
-                    bgcolor: "#C86823",
-                    transition: "background-color 0.3s ease, color 0.3s ease",
-                    textTransform: "none",
-                    "&:hover": {
-                      bgcolor: "#A0471D",
-                      color: "white",
-                    },
-                  }}
-                >
-                  {loading === true ? "Logging in..." : "Login"}
-                </Button>
-                <p className={Styles.orPhrase}>Or</p>
-                {/* <OAuth isLogin={true} /> */}
-              </div>
-            </form>
-          </div>
-        </section>
+      </div>
       </main>
-      {/* <ToastContainer /> */}
     </>
   );
 }

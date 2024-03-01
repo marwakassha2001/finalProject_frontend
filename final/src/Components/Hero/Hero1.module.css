@@ -3,14 +3,14 @@
     overflow: hidden;
     width: 100%;
     /* Set width to cover the entire viewport */
-    height: 83vh;
-    background-image: url(../../Assets/wave\ \(8\).svg);
+    height: 80vh;
+    background-image: url(../../Assets/Asset\ 1\ \(1\).svg);
     /* Replace 'img' with your image path */
-    object-fit: cover;
+    /* object-fit: cover; */
     background-size: cover;
-    background-position: bottom;
+    background-position:bottom;
     background-repeat: no-repeat;
-    top: 0;
+    top: -6rem;
     z-index: 0;
     left: 0;
     display: block;
@@ -19,7 +19,7 @@
 .contentWrapper {
     width: 100%;
     position: absolute;
-    top: 4rem;
+    top: 9rem;
     justify-content: center;
     column-gap: 30rem;
     display: flex;
@@ -59,7 +59,7 @@
     width: 100%;
     top: 0;
 
-    right: 3rem;
+    right: 10rem;
     border-radius: 50%;
     position: absolute;
     object-fit: cover;

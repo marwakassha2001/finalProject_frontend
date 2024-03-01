@@ -1,0 +1,105 @@
+
+.sidebar {
+    width: 100%;
+    background-color: #ffffff;
+    color: #1F2937;
+    padding: 0.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 180px;
+}
+
+.sidebar .headTitle {
+    /* text-align: center; */
+    margin-left: 25px;
+}
+
+.sidebar .sideBtn {
+    display: flex;
+gap: 6rem;
+    align-items: center;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.check {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 35px;
+}
+
+.checklist{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 1em;
+
+}
+.checklist .listItems {
+    list-style: none;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    border-spacing: 5px;
+}
+
+.checklist input[type="checkbox"] {
+    margin-right: 0.4em;
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.checklist .labels {
+    flex: 1;
+}
+
+.checklist h3 {
+    font-size: inherit;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.check {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px 30px 30px;
+}
+
+.filterBtn {
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 15px;
+    background-color: #974E44;
+    border: none;
+    color: white;
+    transition: .5s;
+}
+
+.filterBtn:hover {
+    background-color: #974E44;
+}
+
+.reset{
+    font-size: 25px;
+    height: 34px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.reset:hover {
+    color: #974E44;
+}
+
+.price p {
+    margin-top: 0;
+}
+.p{
+    margin-bottom: 1em;
+}

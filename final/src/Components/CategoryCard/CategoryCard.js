@@ -21,7 +21,7 @@ const CartegoryCard = () => {
     return (
         <section className={Styles.container}>
       <div>
-        <h2 className={Styles.title}>Our Categories</h2>
+        <h1 className={Styles.title}>Our Categories</h1>
         </div>
         <div className={Styles.cards}>
             {categoryData.map((item, index) => (
