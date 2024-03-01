@@ -1,6 +1,5 @@
 import React from 'react'
 import style from "./Home.module.css"
-import Hero from '../../Components/Hero/Hero'
 import Hero1 from '../../Components/Hero/Hero1'
 import CategoryCard from "../../Components/CategoryCard/CategoryCard.js"
 import MealCard from '../../Components/MealCard/MealCard'

@@ -11,7 +11,6 @@ import Cart from "../Pages/Cart/Cart.js";
 import Login from "../Pages/Login/Login.js"
 import Signup from "../Pages/Signup/Signup.js";
 import Cooks from "../Pages/Cooks/Cooks.js"
-import Hero from "../Components/Hero/Hero.jsx";
 import Hero1 from "../Components/Hero/Hero1.js";
 
 const AppRouter = () => {
