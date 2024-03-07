@@ -26,7 +26,7 @@ const AppRouter = () => {
         <Route path="/cook" element={<Cooks/>} />
         <Route path="/contact" element={<ContactUs/>} />
         <Route path="/about" element={<About/>} />
-        <Route path="/ProductsPage/:categoryId" element={<Meals />} />
+        <Route path="/meals/:id" element={<Meals />} />
         <Route path="/mealDetails/:slug" element={<MealDetails/>} />
         <Route path="/meals" element={<Meals />} />
         {/* <Route path="/mealDetails" element={<MealDetails />} /> */}

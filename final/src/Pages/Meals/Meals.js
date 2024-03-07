@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./Meals.module.css";
 import { fetchProducts } from "../../data/mealsData";
+import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import MealCard from '../../Components/MealCard/MealCard';
 import imageFood from "../../Assets/AdobeStock_211143160_Preview.jpeg";
@@ -18,11 +19,11 @@ export default function Meals() {
   const [currentPage, setCurrentPage] = useState(1);
   const [checkboxes, setCheckboxes] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { categoryId } = useParams();
+  const { id } = useParams();
   const [searchInput, setSearchInput] = useState("");
   const [isError, setIsError] = useState({ state: false, message: "ok" });
   const [selectedCategories, setSelectedCategories] = useState(
-    categoryId ? [`${categoryId}`] : []
+    id ? [`${id}`] : []
   );
 
 
@@ -40,32 +41,49 @@ export default function Meals() {
     }
   }
 
+ async function fetchMealsByCateg() {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_ENDPOINT}meal/byCategory/${id}`);
+      if (response) {
+        setMeals(response.data);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+console.log(meals)
   console.log(meals, 'mmmmmmmmmmm')
-  const filteredProducts = meals ? meals.filter((meal) =>
-    meal.user.firstName.toLowerCase().includes(searchInput.toLowerCase())
-  )
-    .filter((meal) => {
-      const matchesCategory =
-        selectedCategories.length === 0 ||
-        selectedCategories.some(
-          (categoryId) => categoryId === meal.category._id
-        );
+  // const filteredProducts = meals ? meals.filter((meal) =>
+  //   meal.user.firstName.toLowerCase().includes(searchInput.toLowerCase())
+  // )
+  //   .filter((meal) => {
+  //     const matchesCategory =
+  //       selectedCategories.length === 0 ||
+  //       selectedCategories.some(
+  //         (categoryId) => categoryId === meal.category._id
+  //       );
 
-      return matchesCategory;
-    }) : [];
+  //     return matchesCategory;
+  //   }) : [];
 
-  console.log(filteredProducts, 'llllllllll')
+  // console.log(filteredProducts, 'llllllllll')
 
 
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const endIndex = startIndex + productsPerPage;
+  // const startIndex = (currentPage - 1) * productsPerPage;
+  // const endIndex = startIndex + productsPerPage;
 
-  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+  // const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
 
-  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  // const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
   useEffect(() => {
-    fetchData();
+    if(id){
+      fetchMealsByCateg()
+    }else{
+      fetchData();
+    }
+
   }, []);
   // if (meals) console.log(meals[0].mealDetails[0].price)
   return (

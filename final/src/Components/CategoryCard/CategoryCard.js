@@ -43,7 +43,7 @@ const [categoryData,setCategoryData]= useState([])
                 
                 <div className={Styles.card} key={index}>
                     <div className={Styles.imageContainer}>
-                    <Link to="meals">
+                    <Link to={`meals/${item._id}`}>
                         <img src={item.image} alt={item.image} className={Styles.img} />
                         </Link>
                     </div>
