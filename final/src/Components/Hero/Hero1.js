@@ -14,7 +14,7 @@ export default function Hero1() {
       <div className={Styles.left}>
       <p className={Styles.phrase}>
   Grandma's kitchen, 
-  <span style={{ color: "#D0766A" }}> heartfelt </span>
+  <span style={{ color: "#D0766A",fontSize:"4rem" }}> heartfelt </span>
   meal
 </p>
 <p className={Styles.phraseDesc}>

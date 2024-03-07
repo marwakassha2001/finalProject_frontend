@@ -1,21 +1,21 @@
 .container {
     display: flex;
-    margin-top: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 10rem;
   }
   
   .imageArticle {
-    width: 50%;
+    width: 40%;
     padding: 15px;
     display: flex;
     justify-content: center;
-    background-color: #fcded8;
     border-radius: 15px;
   }
   
   .imageProduct {
     width: 95%;
     border-radius: 15px;
-    margin-left: 3.6rem;
+    /* margin-left: 3.6rem; */
   }
   .price{
     font-weight: normal;

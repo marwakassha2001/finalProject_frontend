@@ -5,6 +5,8 @@ import CategoryCard from "../../Components/CategoryCard/CategoryCard.js"
 import MealCard from '../../Components/MealCard/MealCard'
 import Testimonial from '../../Components/Testimonial/Testimonial'
 import ChefCard from '../../Components/BestCook/ChefCard'
+import Request from '../../Components/Request/Request.js'
+import AboutSection from '../../Components/AboutSection/About '
 
 export default function Home() {
   return (
@@ -13,11 +15,13 @@ export default function Home() {
             <div className={style.hero}>
             <Hero1/>
             </div>
+            <AboutSection/>
             <div className={style.category}>
                 <CategoryCard/>
             </div>
-            <ChefCard/>
             {/* <Testimonial/> */}
+            <ChefCard/>
+            <Request/>
         </section>
       
     </div>

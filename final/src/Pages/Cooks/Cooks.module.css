@@ -1,6 +1,42 @@
-.homePage{
-    height: 100vh;
-    margin-top: 3rem;
-    margin-left: 3rem;
-
-}
+.pageWrapper {
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: start; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    height: 80vh;
+  }
+  
+  .mealscard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+  }
+  
+  .title {
+    font-size: 45px;
+    color: #B55D51;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold; /* Adjusted font-weight */
+    margin-left: 40rem;
+    margin-top: 0;
+    text-align: center; /* Center the text */
+  }
+  
+  .titleCard {
+    margin-top: -6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+  }
+  
+  .cardWrapper {
+    width: 300px; /* Adjust the width of the card */
+    margin: 1rem; /* Add some margin around each card */
+    transition: 0.2s ease-in-out;
+  }
+  
+  .cardWrapper:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }

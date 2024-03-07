@@ -71,7 +71,7 @@ export default function Meals() {
   return (
     <div>
       <section className={style.pageWrapper}>
-        {(isLoading) ? (<div>Loadinggg!11</div>) : (
+        {/* {(isLoading) ? (<div>Loadinggg!11</div>) : (
           <div className={style.sidebar}>
             <Sidebar
               setSelectedCategories={setSelectedCategories}
@@ -79,26 +79,26 @@ export default function Meals() {
               setCheckboxes={setCheckboxes}
               mealsData={meals}
             />
-          </div>)}
+          </div>)} */}
         <div className={style.titleCard}>
           <div >
             <h1> <p className={style.title}> Meals</p></h1>
           </div>
           <div className={style.mealscard}>
-            {paginatedProducts && paginatedProducts.map((meal, i) => (
-              <div className={style.cardWrapper}>
-                <MealCard
-                  key={meal.id}
-                  title={meal.name}
-                  image={meal.image}
-                  category={meal.category.name}
-                  cook={meal.user.firstName}
-                  city={meal.user.address}
-                  price={(meal.mealDetails && meal.mealDetails.find(detail => detail.price) && meal.mealDetails.find(detail => detail.price).price) || 'Price not available'}
-                  imagecook={meal.user.image}
-                />
-              </div>
-            ))}
+          {meals && meals.map((meal, i) => (
+    <div className={style.cardWrapper} key={meal.id}>
+      <MealCard
+        title={meal.name}
+        slug={meal.slug}
+        image={meal.image}
+        category={meal.category?.name} // Use optional chaining here
+        cook={meal.user.firstName}
+        city={meal.user.address}
+        price={meal.price}
+        imagecook={meal.user.image}
+      />
+    </div>
+  ))}
           </div>
         </div>
       </section>

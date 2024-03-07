@@ -15,6 +15,9 @@
     left: 0;
     display: block;
 }
+span{
+    font-size: 4rem;
+}
 
 .contentWrapper {
     width: 100%;

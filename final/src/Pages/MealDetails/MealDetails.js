@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 import StyleSingleProduct from "./MealDetails.module.css"
 import imageb from "../../Assets/Asset 1 (1).svg"
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -7,44 +9,81 @@ import Sidebar from '../../Layouts/Sidebar/Sidebar'
 import image from "../../Assets/AdobeStock_211143160_Preview.jpeg"
 
 export default function MealDetails() {
+  const [count, setCount] = useState(1);
+  const [meal, setMeal] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const { slug } = useParams();
+
+  function handleIncrease() {
+    setCount((prev) => prev + 1);
+  }
+  function handleDecrease() {
+    setCount((prev) => prev - 1);
+  }
+  async function getMeal() {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BACKEND_ENDPOINT}meal/${slug}`
+      );
+      if (response && response.data) {
+        setMeal(response.data);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  }
+  useEffect(() => {
+    getMeal();
+  }, [slug]);
+
   return (
-      <div className={StyleSingleProduct.container}>
+    <div className={StyleSingleProduct.container}>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : meal ? (
+        <>
           <article className={StyleSingleProduct.imageArticle}>
             <img
-              src={image}
+              src={meal.image}
               className={StyleSingleProduct.imageProduct}
             />
           </article>
 
           <article className={StyleSingleProduct.contentArticle}>
             <div className={StyleSingleProduct.nameContainer}>
-              <h1>Delicous salad with fish </h1>
+              <h1>{meal.name} </h1>
               <div className={StyleSingleProduct.categoryContainer}>
-              <span>price :</span>
-              <p>$1.5</p>
-            </div>
+                <span>price :</span>
+                <p>{meal.price}</p>
+              </div>
             </div>
             <div className={StyleSingleProduct.categoryContainer}>
               <span>Category :</span>
-              <p>Salad </p>
+              <p>{meal.category.name} </p>
             </div>
             <div className={StyleSingleProduct.weightContainer}>
               <span>Weight : </span>
-              <p>1 kg </p>
+              <p>{meal.weight}</p>
             </div>
             <section className={StyleSingleProduct.quantityContainer}>
               <span>Quantity : </span>
               <section className={StyleSingleProduct.quantityControl}>
                 <div
-                  className={StyleSingleProduct.decrease} 
+                  className={`${StyleSingleProduct.decrease} ${
+                    count === 0 ? StyleSingleProduct.disabled : ""
+                  }`}
+                  onClick={count > 0 ? handleDecrease : null}
                 >
                   -
                 </div>
                 <div className={StyleSingleProduct.currentQuantity}>
-                  1kg
+                  {count}
                 </div>
                 <div
                   className={StyleSingleProduct.increase}
+                  onClick={handleIncrease}
                 >
                   +
                 </div>
@@ -52,19 +91,13 @@ export default function MealDetails() {
             </section>
             <div className={StyleSingleProduct.descriptionContainer}>
               <span>Description: </span>
-              <p> This refreshing summer salad combines crisp lettuce, juicy tomatoes, crunchy cucumbers, and tangy red onions, all tossed together with a zesty vinaigrette dressing. Sprinkled with
-                 fragrant herbs and topped with creamy feta cheese, this salad is bursting with flavor and perfect for a light lunch or as a side dish for any meal. With its vibrant colors and fresh ingredients,
-Feel free to adjust the description according to the specific ingredients and flavors of your salad recipe!</p>
+              <p> {meal.description}</p>
             </div>
             <div className={StyleSingleProduct.ingredientsContainer}>
               <span>Ingredients:</span>
-              <div className={StyleSingleProduct.ingredientsList}>
-                <p className={StyleSingleProduct.ingred}>ingredient</p>
-                <p className={StyleSingleProduct.ingred}>ingredient</p>
-                <p className={StyleSingleProduct.ingred}>ingredient</p>
-              </div>
+              <p style={{ width: "70%" }}>{meal.ingredients}</p>
             </div>
-            <span style={{ marginTop: "1rem" }}>
+            <span style={{ marginBottom: "1.5rem" }}>
               <Button
                 size="large"
                 variant="contained"
@@ -82,6 +115,10 @@ Feel free to adjust the description according to the specific ingredients and fl
               </Button>
             </span>
           </article>
+        </>
+      ) : (
+        <p>Meal not found</p>
+      )}
     </div>
-  )
+  );
 }

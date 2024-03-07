@@ -11,7 +11,11 @@ select {
   padding: 6px;
   font-size: 16px;
 }
-
+.loSibad{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .languageSwitcher > p {
   margin-top: 6px;
   font-size: 18px;
@@ -50,7 +54,7 @@ position:relative;
 
 .linksWrapperContainer {
   display: flex;
-justify-content: center;
+justify-content: space-between;
 flex: 1; 
   list-style: none;
   align-items: center;
@@ -60,8 +64,8 @@ flex: 1;
   margin: 0;
   padding: 10px;
   display: flex;
-  width: 40%;
-  padding-left: 15rem;
+  /* width: 40%; */
+  /* padding-left: 15rem; */
   /* flex-grow: 1; 
   justify-content: center;  */
   /* column-gap: 10px; */
@@ -70,13 +74,13 @@ flex: 1;
 
 }
 .linksWrapper {
-  margin: 0;
+  margin-left: 28%;
   padding: 10px;
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   /* flex-grow: 1; 
   justify-content: center;  */
-  margin-left: 35rem;
+  /* margin-left: 35rem; */
     column-gap: 20px;
   list-style: none;
   /* align-items: center; */
@@ -241,13 +245,24 @@ flex: 1;
   
   .linksWrapper {
     display: flex;
-    column-gap: 0px;
+    column-gap: 1px;
+  }
+  .linksWrapperbtn{
+    display: none;
+  }
+
+  .burgerButton {
+    display: block;
   }
 }
 
 @media screen and (max-width: 960px) {
   .navBar {
     width: 90%;
+  }
+
+  .logoContainer {
+    width:4rem;
   }
 
   .linksWrapper {
@@ -257,9 +272,13 @@ flex: 1;
   .profileWrapper{
     display: none;
   }
+  .linksWrapperbtn{
+    display: none;
+  }
 
   .burgerButton {
     display: block;
+    justify-content: center;
   }
   .linksWrapper > li > a,
   .linksWrapperMobile > li > a {

@@ -3,12 +3,13 @@ import style from './Footer.module.css'
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import logo from "../../Assets/logo5.png"
 import { Link, NavLink, useNavigate } from "react-router-dom";
 const Footer = () => {
     return (
           <div className={style.footerp}>
           <div className={style.container}>
-           <Link to='/'className={style.link}><p>logo </p></Link>
+           <Link to='/'className={style.link}><img src={logo} height={80} alt=" Logo" /></Link>
             <nav>
                 <ul className={style.list}>
                     <Link className={style.link}  ><li>Meals</li></Link>

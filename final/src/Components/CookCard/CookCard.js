@@ -5,18 +5,30 @@ import image2 from "../../Assets/chef5.jpg"
 import image3 from "../../Assets/che4.jpg"
 import image4  from "../../Assets/chef6.jpg"
 import image5  from "../../Assets/chef7.jpg"
+import { Link } from 'react-router-dom';
 
-const CookCard = () => {
+const CookCard = ({ id, firstName, lastName, image, city }) => {
+  console.log(id)
   return (
+    <Link
+    style={{
+      textDecoration: "none",
+      color: "inherit",
+      transition: "background-color 0.5s, opacity 0.3s",
+      display: "flex",
+      flexDirection: "column",
+    }}
+    to={`/profile/${id}`}
+    >
     <div className={styles.card}>
-    <img src={image} alt="Image" />
-    <div className={styles.details}>
-      <h2>Stevie Blight</h2>
-      <p>tripoli</p>
+      <img src={image} alt="Image" />
+      <div className={styles.details}>
+        <h2>{`${firstName} ${lastName}`}</h2>
+        <p>{city}</p>
+        <div className={styles.view}> View more  </div>
+      </div>
     </div>
-    <p id={styles.info}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </div>
-
+    </Link>
   );
 }
 

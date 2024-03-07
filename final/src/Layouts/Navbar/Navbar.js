@@ -4,6 +4,7 @@ import Styles from "./Navbar.module.css";
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
+import logo from "../../Assets/logo5.png"
 import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -72,7 +73,7 @@ function Navbar() {
             className={Styles.logoContainer}
             aria-label="Go to homepage"
           >
-           <p>logo</p>
+            <img src={logo} height={85} alt=" Logo" />
           </NavLink>
 
           <ul className={Styles.linksWrapperContainer}>
@@ -110,7 +111,7 @@ function Navbar() {
               </li>
               <li>
                 <NavLink
-                  to="/ContactUs"
+                  to="/contact"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? Styles.active : ""
                   }
@@ -120,7 +121,7 @@ function Navbar() {
               </li>
               <li>
                 <NavLink
-                  to="/AboutUs"
+                  to="/about"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? Styles.active : ""
                   }
@@ -130,161 +131,162 @@ function Navbar() {
               </li>
             </ul>
             {/* Navbar Ending */}
-
             {/* SignUp LogIn beginning */}
-            {!user && (
-              <ul className={Styles.linksWrapperbtn}>
-                <li>
-                  <Stack spacing={2} direction="row">
-                    <Button
-                      onClick={goToLoginPage}
-                      variant="outlined"
-                      sx={{
-                        color: "#b55d4e",
-                        borderColor: "#b55d4e",
-                        transition:
-                          "background-color 0.3s ease, color 0.3s ease",
-                        textTransform: "none",
-                        "&:hover": {
+            <div className={Styles.loSibad}>
+              {!user && (
+                <ul className={Styles.linksWrapperbtn}>
+                  <li>
+                    <Stack spacing={2} direction="row">
+                      <Button
+                        onClick={goToLoginPage}
+                        variant="outlined"
+                        sx={{
+                          color: "#b55d4e",
                           borderColor: "#b55d4e",
-                          backgroundColor: "#b55d4e",
-                          color: "white",
-                        },
-                      }}
-                    >
-                      Log In
-                    </Button>
+                          transition:
+                            "background-color 0.3s ease, color 0.3s ease",
+                          textTransform: "none",
+                          "&:hover": {
+                            borderColor: "#b55d4e",
+                            backgroundColor: "#b55d4e",
+                            color: "white",
+                          },
+                        }}
+                      >
+                        Log In
+                      </Button>
 
-                    <Button
-                      onClick={goToSignUpPage}
-                      variant="contained"
-                      sx={{
-                        bgcolor: "#b55d4e",
-                        transition:
-                          "background-color 0.3s ease, color 0.3s ease",
-                        textTransform: "none",
-                        "&:hover": {
+                      <Button
+                        onClick={goToSignUpPage}
+                        variant="contained"
+                        sx={{
                           bgcolor: "#b55d4e",
-                          color: "white",
-                        },
-                      }}
-                    >
-                      Sign Up
-                    </Button>
-                  </Stack>
-                </li>
-              </ul>
-            )}
-            {user && (
-              <div className={Styles.profileWrapper}>
-                <Button
-                  endIcon={<KeyboardArrowDownIcon />}
-                  onClick={() => setProfileOpen(!profOpen)}
-                  variant="contained"
-                  sx={{
-                    bgcolor: "#b55d4e",
-                    transition: "background-color 0.3s ease, color 0.3s ease",
-                    height: "2.2rem",
-                    textTransform: "none",
-                    "&:hover": {
+                          transition:
+                            "background-color 0.3s ease, color 0.3s ease",
+                          textTransform: "none",
+                          "&:hover": {
+                            bgcolor: "#b55d4e",
+                            color: "white",
+                          },
+                        }}
+                      >
+                        Sign Up
+                      </Button>
+                    </Stack>
+                  </li>
+                </ul>
+              )}
+              {user && (
+                <div className={Styles.profileWrapper}>
+                  <Button
+                    endIcon={<KeyboardArrowDownIcon />}
+                    onClick={() => setProfileOpen(!profOpen)}
+                    variant="contained"
+                    sx={{
                       bgcolor: "#b55d4e",
-                      color: "white",
-                    },
-                  }}
-                >
-                  My Profile
-                </Button>
-                {profOpen === true && (
-                  <div className={Styles.profileDiv}>
-                    <ul className={Styles.profile}>
-                      {user.role === "Admin" && (
+                      transition: "background-color 0.3s ease, color 0.3s ease",
+                      height: "2.2rem",
+                      textTransform: "none",
+                      "&:hover": {
+                        bgcolor: "#b55d4e",
+                        color: "white",
+                      },
+                    }}
+                  >
+                    My Profile
+                  </Button>
+                  {profOpen === true && (
+                    <div className={Styles.profileDiv}>
+                      <ul className={Styles.profile}>
+                        {user.role === "Admin" && (
+                          <li className={Styles.profileLi}>
+                            <Button
+                              variant="outlined"
+                              onClick={() => navigate("/dashboard")}
+                              sx={{
+                                padding: "0.7rem 1.5rem",
+                                borderColor: "transparent",
+                                textTransform: "none",
+                                color: "#b55d4e",
+                                ":hover": {
+                                  borderColor: "transparent",
+                                },
+                              }}
+                            >
+                              Dashboard
+                            </Button>
+                          </li>
+                        )}
                         <li className={Styles.profileLi}>
                           <Button
                             variant="outlined"
-                            onClick={() => navigate("/dashboard")}
+                            onClick={() => navigate("/profile")}
                             sx={{
                               padding: "0.7rem 1.5rem",
                               borderColor: "transparent",
-                              textTransform: "none",
                               color: "#b55d4e",
+                              textTransform: "none",
                               ":hover": {
                                 borderColor: "transparent",
                               },
                             }}
                           >
-                            Dashboard
+                            Profile
                           </Button>
                         </li>
-                      )}
-                      <li className={Styles.profileLi}>
-                        <Button
-                          variant="outlined"
-                          onClick={() => navigate("/profile")}
-                          sx={{
-                            padding: "0.7rem 1.5rem",
-                            borderColor: "transparent",
-                            color: "#b55d4e",
-                            textTransform: "none",
-                            ":hover": {
+                        <li className={Styles.profileLi}>
+                          <Button
+                            variant="outlined"
+                            onClick={() => logOut()}
+                            sx={{
+                              padding: "0.7rem 1.5rem",
                               borderColor: "transparent",
-                            },
-                          }}
-                        >
-                          Profile
-                        </Button>
-                      </li>
-                      <li className={Styles.profileLi}>
-                        <Button
-                          variant="outlined"
-                          onClick={() => logOut()}
-                          sx={{
-                            padding: "0.7rem 1.5rem",
-                            borderColor: "transparent",
-                            color: "#b55d4e",
-                            textTransform: "none",
-                            ":hover": {
-                              borderColor: "transparent",
-                            },
-                          }}
-                        >
-                          Logout
-                        </Button>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-            )}
-            {/* SignUp LogIn ending */}
-            <ul style={{ margin: "auto" }}>
-              <li style={{ listStyle: "none" }}>
-                {/* Badge beginning */}
+                              color: "#b55d4e",
+                              textTransform: "none",
+                              ":hover": {
+                                borderColor: "transparent",
+                              },
+                            }}
+                          >
+                            Logout
+                          </Button>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+              {/* SignUp LogIn ending */}
+              <ul>
+                <li style={{ listStyle: "none" }}>
+                  {/* Badge beginning */}
 
-                <IconButton
-                  aria-label="cart"
-                  onClick={goToCardPage}
-                  sx={{
-                    "&:hover": {
-                      background: "transparent",
-                    },
-                  }}
-                >
-                  <Badge
-                    // badgeContent={cartItemCount}
-                    color="secondary"
+                  <IconButton
+                    aria-label="cart"
+                    onClick={goToCardPage}
                     sx={{
-                      color: "black",
-                      "& .MuiBadge-badge": { bgcolor: "#b55d4e" },
-                      "& .MuiBadge-badge:hover": {
-                        bgcolor: "#A0471D",
+                      "&:hover": {
+                        background: "transparent",
                       },
                     }}
                   >
-                    <ShoppingCartIcon />
-                  </Badge>
-                </IconButton>
-              </li>
-            </ul>
+                    <Badge
+                      // badgeContent={cartItemCount}
+                      color="secondary"
+                      sx={{
+                        color: "black",
+                        "& .MuiBadge-badge": { bgcolor: "#b55d4e" },
+                        "& .MuiBadge-badge:hover": {
+                          bgcolor: "#A0471D",
+                        },
+                      }}
+                    >
+                      <ShoppingCartIcon />
+                    </Badge>
+                  </IconButton>
+                </li>
+              </ul>
+            </div>
           </ul>
 
           {/* ///////////////
@@ -309,30 +311,30 @@ function Navbar() {
             </li>
             <li>
               <NavLink
-                to="/ProductsPage"
+                to="/meals"
                 onClick={() => setCollapsed(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? Styles.active : ""
                 }
               >
-                Products
+                meals
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/Blogs"
+                to="/cook"
                 onClick={() => setCollapsed(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? Styles.active : ""
                 }
               >
-                Blogs
+                Cooks
               </NavLink>
             </li>
 
             <li>
               <NavLink
-                to="/ContactUs"
+                to="/contact"
                 onClick={() => setCollapsed(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? Styles.active : ""
@@ -344,7 +346,7 @@ function Navbar() {
 
             <li>
               <NavLink
-                to="/AboutUs"
+                to="/about"
                 onClick={() => setCollapsed(false)}
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? Styles.active : ""
