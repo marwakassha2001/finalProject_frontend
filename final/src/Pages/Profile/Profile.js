@@ -81,6 +81,7 @@ const ProfilePage = () => {
     <MealByCook
       key={index}
       id={meal._id}
+      slug={meal.slug}
       name={meal.name}
       price={meal.price}
       image={meal.image}

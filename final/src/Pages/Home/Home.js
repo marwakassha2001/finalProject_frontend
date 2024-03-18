@@ -7,23 +7,22 @@ import Testimonial from '../../Components/Testimonial/Testimonial'
 import ChefCard from '../../Components/BestCook/ChefCard'
 import Request from '../../Components/Request/Request.js'
 import AboutSection from '../../Components/AboutSection/About '
+import HeroSection from '../../Components/Hero/Hero'
 
 export default function Home() {
   return (
-    <div>
-        <section className={style.homePage}>
-            <div className={style.hero}>
-            <Hero1/>
-            </div>
+  <div
+      style={{
+        width: "100%",
+        margin: "5rem auto",
+      }}
+    >
+    <HeroSection/>
             <AboutSection/>
-            <div className={style.category}>
                 <CategoryCard/>
-            </div>
             {/* <Testimonial/> */}
-            <ChefCard/>
+            {/* <ChefCard/> */}
             <Request/>
-        </section>
-      
-    </div>
+            </div>
   )
 }

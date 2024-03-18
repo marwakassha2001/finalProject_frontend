@@ -5,6 +5,7 @@ import image from "../../Assets/loginpic.jpg"
 import { NavLink } from "react-router-dom";
 import useApi from "../../Hooks/UseApi";
 import Box from '@mui/material/Box';
+import { toast, ToastContainer } from "react-toastify";
 import { Button } from "@mui/material";
 import Input from '@mui/material/Input';
 import { AuthContext } from "../../Context/AuthContext";
@@ -53,16 +54,16 @@ const Signup = () => {
     }
   }, [success]);
 
-//   const showToast = (message) => {
-//     toast.error(message, {
-//       position: "top-right",
-//       autoClose: 3000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//     });
-//   };
+  const showToast = (message) => {
+    toast.error(message, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
 const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -104,7 +105,7 @@ const submitHandler = async (e) => {
         setLoading(false);
         setSuccess(true);
         // sendWelcomeEmail(firstName, email);
-        // navigate("/home");
+        navigate("/home");
       }
     } catch (error) {
       console.log(error);
@@ -114,87 +115,194 @@ const submitHandler = async (e) => {
   };
 
     return (
-      <main className={Styles.main}>
-        <div className={Styles.mainContainer}>
-          <div className={Styles.left}>
-<img src={image}/>
-          </div>
-
-          <div className={Styles.right}>
-            <p className={Styles.Header}> Register your account </p>
-          <Input placeholder="First Name" firstName={firstName} 
-           value={firstName}
-           onChange={(e) => setFirstName(e.target.value)}
-           />
-          <Input placeholder="Last Name" lastName={lastName}
-               value={lastName}
-               onChange={(e) => setLastName(e.target.value)}
-          />
-          <Input placeholder="Email" firstName={email} 
-                 helperText={!emailError ? "": emailError}
-                 value={email}
-                 onChange={(e) => {
-                   setEmail(e.target.value);
-                   setEmailError(null); // Clear previous error when typing
-                 }}
-                 onBlur={() => {
-                   // Validate email on blur
-                   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-                     email
-                   );
-                   if (!isValidEmail) {
-                    setEmailError("Please enter a valid email address");
-                   }
-                 }}
-          />
-          <Input placeholder="Password" password={password}
-           value={password}
-           type={showPassword ? "text" : "password"}
-           onChange={(e) => {
-             setPassword(e.target.value);
-             setPasswordError(null); // Clear previous error when typing
-           }}
-           onBlur={() => {
-             // Validate password on blur
-             const isValidPassword =
-               /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
-             if (!isValidPassword) {
-               setPasswordError(
-                 "Password must be at least 8 characters long and contain at least one letter and one number"
-               );
-             }
-           }}
-          />
-          <Input placeholder="Phone Number" phoneNumber={phoneNumber} 
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}/>
-          <div className={Styles.linkPhrase}>
+      <>
+      <ToastContainer />
+      <main className={Styles.mainContainer}>
+        <section className={Styles.pageContainer}>
+          <div className={Styles.div}>
+            <h1 className={Styles.title}>Register your account</h1>
+            <div className={Styles.linkPhrase}>
               <p className={Styles.p}>Already have one?</p>
-              <NavLink to="/Login" style={{color:"#B55D51"}}>
+              <NavLink to="/Login" className={Styles.linkLogin}>
                 login
               </NavLink>
             </div>
-          <div className={Styles.buttom}>
-          <Button
-          size="small"
-          variant="contained"
-          onClick={submitHandler}
-          sx={{
-            bgcolor: "#974E44",
-            color: "white",
-            fontSize: "1.3rem",
-            ":hover": {
-              bgcolor: "#B55D51",
-            },
-            textTransform: "none",
-          }}
-        >
-          {loading ? "Signing up..." : "Sign Up"}
-        </Button>
-</div>
           </div>
-      </div>
+
+          <div>
+            <form className={Styles.formContainer}>
+              <div className={Styles.inputContainer}>
+                <TextField
+                  required
+                  fullWidth
+                  id="outlined-basic"
+                  label="First Name"
+                  variant="outlined"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  sx={{
+                    "& .Mui-focused > .MuiOutlinedInput-notchedOutline ": {
+                      border: "2px solid #B55D51 !important",
+                      borderRadius: "4px",
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid #B55D51 ",
+                    },
+                    "& .MuiInputLabel-root.Mui-focused ": {
+                      color: "#B55D51 ",
+                    },
+                  }}
+                />
+                <TextField
+                  required
+                  fullWidth
+                  id="outlined-basic"
+                  label=" Last Name"
+                  variant="outlined"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  sx={{
+                    "& .Mui-focused > .MuiOutlinedInput-notchedOutline ": {
+                      border: "2px solid #B55D51 !important",
+                      borderRadius: "4px",
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid #B55D51 ",
+                    },
+                    "& .MuiInputLabel-root.Mui-focused ": {
+                      color: "#B55D51 ",
+                    },
+                  }}
+                />
+                <TextField
+                  required
+                  fullWidth
+                  id="outlined-basic"
+                  label="Email"
+                  variant="outlined"
+                    helperText={!emailError ? "": emailError}
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setEmailError(null); // Clear previous error when typing
+                  }}
+                  onBlur={() => {
+                    // Validate email on blur
+                    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+                      email
+                    );
+                    if (!isValidEmail) {
+                     setEmailError("Please enter a valid email address");
+                    }
+                  }}
+                  sx={{
+                    "& .Mui-focused > .MuiOutlinedInput-notchedOutline ": {
+                      border: "2px solid #B55D51 !important",
+                      borderRadius: "4px",
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid #B55D51 ",
+                    },
+                    "& .MuiInputLabel-root.Mui-focused ": {
+                      color: "#B55D51 ",
+                    },
+                  }}
+                />
+                <TextField
+                  required
+                  fullWidth
+                  id="outlined-basic"
+                  label="Password"
+                  helperText={!passwordError ? "": passwordError}
+                  variant="outlined"
+                  value={password}
+                  type={showPassword ? "text" : "password"}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setPasswordError(null); // Clear previous error when typing
+                  }}
+                  onBlur={() => {
+                    // Validate password on blur
+                    const isValidPassword =
+                      /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+                    if (!isValidPassword) {
+                      setPasswordError(
+                        "Password must be at least 8 characters long and contain at least one letter and one number"
+                      );
+                    }
+                  }}
+                  InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                            <IconButton
+                                aria-label="toggle password visibility"
+                                onClick={handleClickShowPassword}
+                                onMouseDown={handleMouseDownPassword}
+                                edge="end"
+                                style={{ color: "#B55D51" }}
+                            >
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                        </InputAdornment>
+                    )
+                }}
+                  sx={{
+                    "& .Mui-focused > .MuiOutlinedInput-notchedOutline ": {
+                      border: "2px solid #B55D51 !important",
+                      borderRadius: "4px",
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid #B55D51 ",
+                    },
+                    "& .MuiInputLabel-root.Mui-focused ": {
+                      color: "#B55D51 ",
+                    },
+                  }}
+                />
+                <TextField
+                  fullWidth
+                  id="outlined-basic"
+                  label="Phone Number"
+                  variant="outlined"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  sx={{
+                    "& .Mui-focused > .MuiOutlinedInput-notchedOutline ": {
+                      border: "2px solid #B55D51 !important",
+                      borderRadius: "4px",
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid #B55D51 ",
+                    },
+                    "& .MuiInputLabel-root.Mui-focused ": {
+                      color: "#B55D51 ",
+                    },
+                  }}
+                />
+              </div>
+              <div className={Styles.buttonContainer}>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  onClick={submitHandler}
+                  sx={{
+                    bgcolor: "#B55D51",
+                    transition: "background-color 0.3s ease, color 0.3s ease",
+                    "&:hover": {
+                      bgcolor: "#b5736b",
+                      color: "white",
+                    },
+                    textTransform: 'none'
+                  }}
+                >
+                  {loading ? "Signing up..." : "Sign Up"}
+                </Button>
+              </div>
+            </form>
+          </div>
+        </section>
       </main>
+    </>
     )
 }
 

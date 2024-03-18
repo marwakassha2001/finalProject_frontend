@@ -1,26 +1,25 @@
-import React from 'react'
-import Styles from "./Hero1.module.css"
+import Styles from "./Hero.module.css";
 import { Button } from "@mui/material";
-import { useEffect, useRef } from "react";
-import img from "../../Assets/backgfuulimg.jpg"
 import { useNavigate } from "react-router-dom";
 
-export default function Hero1() {
-
+const HeroSection = () => {
   const nav = useNavigate();
+
+
   return (
-    <section className={Styles.hero}>
-    <div className={Styles.contentWrapper}>
+    <header className={Styles.HeroSection}>
       <div className={Styles.left}>
       <p className={Styles.phrase}>
   Grandma's kitchen, 
-  <span style={{ color: "#b55d4e",fontSize:"4rem" }}> heartfelt </span>
+  <span style={{ color: "#D0766A",fontSize:"4rem" }}> heartfelt </span>
   meal
 </p>
-<p className={Styles.phraseDesc}>
+        <div className={Styles.SloganContainer}>
+        <p className={Styles.phraseDesc}>
       Discover homemade delights straight from mom's kitchen. Order now for a taste of home
       </p>
-<Button
+        </div>
+        <Button
           size="large"
           variant="contained"
           sx={{
@@ -29,18 +28,18 @@ export default function Hero1() {
             fontSize: "1.3rem",
             ":hover": {
               bgcolor: "#b55d4e",
-              color: "white",
             },
             textTransform: "none",
           }}
           onClick={() => {
-            nav("/ProductsPage");
+            nav("/meals");
           }}
         >
           Discover products
         </Button>
       </div>
-    </div>
-  </section>
-  )
-}
+    </header>
+  );
+};
+
+export default HeroSection;

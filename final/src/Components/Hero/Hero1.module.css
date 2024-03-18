@@ -2,18 +2,15 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    background-image: url(../../Assets/bg-1.jpg);
     /* Set width to cover the entire viewport */
-    height: 80vh;
-    background-image: url(../../Assets/Asset\ 1\ \(1\).svg);
+    height: 65vh;
     /* Replace 'img' with your image path */
     /* object-fit: cover; */
-    background-size: cover;
-    background-position:bottom;
+    background-size:cover;
+    background-position:right;
     background-repeat: no-repeat;
-    top: -6rem;
     z-index: 0;
-    left: 0;
-    display: block;
 }
 span{
     font-size: 4rem;
@@ -22,11 +19,11 @@ span{
 .contentWrapper {
     width: 100%;
     position: absolute;
-    top: 9rem;
-    justify-content: center;
-    column-gap: 30rem;
+    top: 3rem;
+    height: 15rem;
+    /* column-gap: 10rem; */
     display: flex;
-    left: 10rem;
+    left: 6rem;
     flex-direction: row;
     z-index: 3;
 }
@@ -46,15 +43,21 @@ span{
 }
 
 .left {
-    width: 60%;
-    gap: 3rem;
+ display: flex;
+ width: 40%;
+ height: 15rem;
+ flex-direction: column;
+ justify-content: start;
+ align-items: start;
+    
 }
 
 .right {
     position: relative;
     width: 60%;
-    margin-top: 0;
-    border-radius: 50%;
+    margin-top: -10rem;
+    background-repeat: no-repeat;
+    /* border-radius: 50%; */
     margin-right: 25rem;
 }
 
@@ -68,3 +71,70 @@ span{
     object-fit: cover;
     box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4)
 }
+
+@media screen and (max-width : 1200px) {
+    .left{
+     width: 50%;
+    }
+    .right{
+     width: 50%;
+    }
+    .contentWrapper{
+     height: 10rem;
+    }
+    .Slogan{
+     font-size: 3rem;
+    }
+ }
+ 
+ @media screen and (max-width : 960px) {
+   .Slogan{
+     font-size: 2.5rem;
+   }
+   .contentWrapper{
+     height: 12rem;
+   }
+   .P{
+     font-size: 1rem;
+   }
+ }
+ 
+ @media screen and (max-width : 600px) {
+   .contentWrapper{
+     height: 7rem;
+   }
+   .HeroSection{
+/* padding-left: 5rem; */
+     /* row-gap: 2.5rem; */
+   }
+   .Slogan{
+     font-size: 2rem;
+   }
+   .P{
+     font-size: 1rem;
+   }
+   .left {
+     width: 100%;
+   }
+   .right{
+     width: 80%;
+   }
+ 
+ }
+ 
+ @media screen and (max-width: 460px) {
+   .contentWrapper {
+     align-items: center;
+     text-align: center;
+   }
+   /* .HeroSection{
+     padding: 2rem;
+     justify-content: space-evenly;
+   } */
+ }
+ 
+ @media screen and (max-width : 350px ) {
+   .contentWrapper{
+     height: 12rem;
+   }
+ }

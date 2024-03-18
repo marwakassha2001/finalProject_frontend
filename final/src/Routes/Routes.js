@@ -8,6 +8,7 @@ import React from 'react'
 import Meals from "../Pages/Meals/Meals.js";
 import MealDetails from "../Pages/MealDetails/MealDetails.js";
 import Cart from "../Pages/Cart/Cart.js";
+import ByCategory from "../Pages/ByCategory/ByCategory.js"
 import Login from "../Pages/Login/Login.js"
 import Signup from "../Pages/Signup/Signup.js";
 import Cooks from "../Pages/Cooks/Cooks.js"
@@ -15,6 +16,7 @@ import Hero1 from "../Components/Hero/Hero1.js";
 import ContactUs from "../Pages/Contact/Contact.js";
 import About from "../Pages/About/About.js";
 import ProfilePage from "../Pages/Profile/Profile.js";
+import Request from "../Pages/RequestForm/RequestForm.js";
 
 const AppRouter = () => {
   return (
@@ -26,13 +28,14 @@ const AppRouter = () => {
         <Route path="/cook" element={<Cooks/>} />
         <Route path="/contact" element={<ContactUs/>} />
         <Route path="/about" element={<About/>} />
-        <Route path="/meals/:id" element={<Meals />} />
+        <Route path="/meals/:id" element={<ByCategory />} />
         <Route path="/mealDetails/:slug" element={<MealDetails/>} />
         <Route path="/meals" element={<Meals />} />
         {/* <Route path="/mealDetails" element={<MealDetails />} /> */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile/:id"  element={<ProfilePage />} />
         <Route path="/login" exact element={<Login />} />
+        <Route path="/request" exact element={<Request />} />
         <Route path="/signUp" exact element={<Signup/>} />
       </Route>
 

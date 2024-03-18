@@ -17,6 +17,13 @@ h1{
 
 .phrase{
     color: rgb(141, 137, 137);
+    word-wrap: break-word;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .title{
@@ -30,7 +37,7 @@ h1{
 }
 
 .button{
-    width: 8%;
+    width: 20%;
     height: 3rem;
     border: none;
     color: white;
@@ -40,4 +47,84 @@ h1{
 .button:hover{
     cursor: pointer;
     background-color: #e18174;
+}
+
+@media (max-width:1196px) {
+}
+
+@media (max-width:1100px) {
+
+  .section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .phrase {
+      height: 40%;
+      line-height: 1.5em;
+      font-size: 1em;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+  }
+
+
+  .image {
+      height: 60%;
+      width: 60%;
+  }
+
+  .phrase {
+      width: 100%;
+  }
+
+}
+
+@media (max-width:818px) {
+
+  .allIcon {
+
+      width: 100%;
+
+  }
+}
+
+@media (max-width:670px) {
+  .phease {
+
+      line-height: 1.3em;
+      font-size: 1em;
+      width: 100%;
+  }
+  .button{
+    width: 60%;
+}
+
+}
+
+@media (max-width:530px) {
+  .section {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+  }
+  .button{
+    width: 60%;
+}
+
+}
+
+
+@media (max-width:530px) {
+.phrase{
+  width: 100%;
+}
+.section{
+    width: 100%;
+}
+.button{
+    width: 60%;
+}
+
 }

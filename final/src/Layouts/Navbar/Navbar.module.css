@@ -218,34 +218,20 @@ flex: 1;
 }
 
 @media screen and (max-width : 1280px){
-  .linksWrapperContainer {
-    display: flex;
-    column-gap: 1px;
-    flex: initial; /* Remove flex grow for smaller screens */
-    justify-content: flex-start;
-    list-style: none;
-    /* background-color: green; */
-  }
-
-}
-
-@media screen and (min-width: 901px) and (max-width : 1150px) {
-  .linksWrapperContainer {
-    display: flex;
-    column-gap: 1px;
-    list-style: none;
-    /* background-color: green; */
-  }
   .navBar {
-    width: 96%;
-    display: flex;
-    justify-content: space-between;
-    /* justify-content: space-around; */
+    width: 90%;
   }
-  
+
+  .logoContainer {
+    width:4rem;
+  }
+
   .linksWrapper {
-    display: flex;
-    column-gap: 1px;
+    display: none;
+  }
+
+  .profileWrapper{
+    display: none;
   }
   .linksWrapperbtn{
     display: none;
@@ -253,6 +239,42 @@ flex: 1;
 
   .burgerButton {
     display: block;
+    justify-content: center;
+  }
+  .linksWrapper > li > a,
+  .linksWrapperMobile > li > a {
+    color: white;
+  }
+
+}
+
+@media screen and (min-width: 901px) and (max-width : 1150px) {
+  .navBar {
+    width: 90%;
+  }
+
+  .logoContainer {
+    width:4rem;
+  }
+
+  .linksWrapper {
+    display: none;
+  }
+
+  .profileWrapper{
+    display: none;
+  }
+  .linksWrapperbtn{
+    display: none;
+  }
+
+  .burgerButton {
+    display: block;
+    justify-content: center;
+  }
+  .linksWrapper > li > a,
+  .linksWrapperMobile > li > a {
+    color: white;
   }
 }
 

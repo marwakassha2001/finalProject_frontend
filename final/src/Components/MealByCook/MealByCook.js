@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import style from "./MealByCook.module.css";
+import { Link, useParams } from "react-router-dom";
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
@@ -8,12 +9,21 @@ import Rating from '@mui/material/Rating';
 import CardMedia from '@mui/material/CardMedia';
 import Avatar from '@mui/material/Avatar';
 
-const MealByCook = ({image,price, title,cook,city,imagecook,category}) => {
+const MealByCook = ({image,price,slug, title,cook,city,imagecook,category}) => {
   console.log( "heloo",price, title,image)
   const [ratingValue, setRatingValue] = useState(4);
 
   return (
     <div className={style.cardMeal}>
+       <Link
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          transition: "background-color 0.5s, opacity 0.3s",
+          display: "flex",
+          flexDirection: "column",
+        }}
+        to={`/mealDetails/${slug}`}></Link>
       <Card sx={{ maxWidth: 330, borderRadius: 4, margin: 2 }}>
         <CardMedia
           component="img"

@@ -147,44 +147,48 @@ console.log(mealsData,'helllooo')
   // const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
     return (
  <>
-            <section className={StyleProducts.sideBarTitle}>
+            {/* <section className={StyleProducts.sideBarTitle}>
               <h1>Categories</h1>
-            </section>
+            </section> */}
             <Reveal>
-              <section className={StyleProducts.searchArticle}>
-                <article>
-                  <h3>Cook</h3>
+  <section className={StyleProducts.searchArticle}>
+    <article>
+      <h3>Cook</h3>
 
-                  <Stack
-                    className={StyleProducts.stack}
-                    sx={{ padding: "10px 0px" }}
-                  >
-                    <Autocomplete
-                freeSolo
-                id="free-solo-2-demo"
-                disableClearable
-                /* Ensure mealsData is an array before mapping */
-                options={mealsData?.map((meal) => ({
-                  name: meal?.user?.firstName, // Handle potential null values
-                }))}
-                getOptionLabel={(option) => option.name}
-                renderInput={(params) => (
-                  <TextField
-                    className={`${StyleProducts.searchInput}`}
-                    {...params}
-                    label="Search input"
-                    InputProps={{
-                      ...params.InputProps,
-                      type: "search",
-                    }}
-                  />
-                )}
-                onChange={handleSearchInputChange}
-              />
-                  </Stack>
-                </article>
-              </section>
-            </Reveal>
+      <Stack
+        className={StyleProducts.stack}
+        sx={{ padding: "10px 0px" }}
+      >
+        <Autocomplete
+          freeSolo
+          id="free-solo-2-demo"
+          disableClearable
+          /* Ensure mealsData is an array before mapping */
+          options={mealsData
+            ? Array.from(
+                new Set(
+                  mealsData.map((meal) => meal?.user?.firstName).filter(Boolean)
+                )
+              ).map((name) => ({ name }))
+            : []}
+          getOptionLabel={(option) => option.name}
+          renderInput={(params) => (
+            <TextField
+              className={`${StyleProducts.searchInput}`}
+              {...params}
+              label="Search input"
+              InputProps={{
+                ...params.InputProps,
+                type: "search",
+              }}
+            />
+          )}
+          onChange={handleSearchInputChange}
+        />
+      </Stack>
+    </article>
+  </section>
+</Reveal>
 
             <Reveal>
               <section className={StyleProducts.categoryArticle}>

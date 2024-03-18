@@ -3,7 +3,7 @@ import CardItem from "../../Components/CartItem/CardItem.js";
 import CardCheckout from "../../Components/CardCheckout/CardCheckout.js";
 import Style from "./Cart.module.css";
 import { useState, useEffect } from "react";
-// import { CartContext } from "../../Context/CartContext.js";
+import { CartContext } from "../../Context/CartContext.js";
 // import { ToastContainer, toast } from "react-toastify";
 
 export default function Cart() {
@@ -21,7 +21,7 @@ export default function Cart() {
     return totalPriceAll;
   };
 
-  // const { decreaseCartItemCount } = useContext(CartContext);
+  const { decreaseCartItemCount } = useContext(CartContext);
 
   useEffect(() => {
     const currentItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -39,7 +39,7 @@ export default function Cart() {
 
     const totalPriceAll2 = calculateTotalPrice(updatedItems);
     setTotalPrice(totalPriceAll2);
-    // decreaseCartItemCount();
+    decreaseCartItemCount();
     setCartItems(cartItems - 1);
   };
 

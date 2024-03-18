@@ -1,39 +1,69 @@
 import React from 'react';
-import styles from './About.module.css';
-import image1 from "../../Assets/coworkers.jpg"
+import style from './About.module.css';
+import img from "../../Assets/share eal.jpg"
+import Button from "@mui/material/Button";
+import { NavLink, useNavigate } from "react-router-dom";
 import CheckIcon from '@mui/icons-material/Check';
-import image2 from "../../Assets/cookiGrid.jpg"
-import image3 from "../../Assets/cooksImage.jpg"
-import image4 from "../../Assets/ffodImage.jpg"
-import image5 from "../../Assets/momsCook.jpg"
+
 
 function AboutSection() {
+
+    const navigate = useNavigate();
+
+    const goToSignUpPage = () => {
+        navigate("/SignUp");
+      };
     return (
-        <div className={styles.about}>
-            <h1  className={styles.title}>Why Choose Us </h1>
-            <div className={styles.textGrid}>
-                <div className={styles.left}>
-                    <h2 className={styles.title2}>
-                        we made every thing with love
-                    </h2>
-                    <p className={styles.phrase}>At our website, we meticulously select the finest cooks to ensure a premium culinary experience for our clients.
-                     Through rigorous vetting processes and stringent quality standards,we handpick talented chefs who excel in their craft.
-                      Coupled with a seamless user interface, we strive to provide our clients with an effortless and enjoyable browsing experience,
-                     making it easy to discover exceptional culinarytalents and indulge in unforgettable dining experiences.</p>
-                    <ul className={styles.list}>
-                        <li className={styles.list2}> very good taste</li>
-                        <li> healthy option</li>
-                        <li> afordable prices </li>
-                    </ul>
-                </div>
-                <div className={styles.grid}>
-                    <div className={`${styles.item} ${styles.item2}`} style={{ backgroundImage: `url(${image1})` }}></div>
-                    <div className={`${styles.item} ${styles.item3}`} style={{ backgroundImage: `url(${image2})` }}></div>
-                    <div className={`${styles.item} ${styles.item4}`} style={{ backgroundImage: `url(${image3})` }}></div>
-                    <div className={`${styles.item} ${styles.item5}`} style={{ backgroundImage: `url(${image5})` }}></div>
-                </div>
+        //         <div className={styles.about}>
+        //             <h1  className={styles.title}>Why Choose Us </h1>
+        //             <div className={styles.textGrid}>
+        //             <div className={styles.image}>
+        //     <img src={img}/>
+        //                 </div>
+        //                 <div className={styles.left}>
+        //                     <h2 className={styles.title2}>
+        //                         Share your meals
+        //                     </h2>
+        //                     <p className={styles.phrase}>
+        // Demonstrate your proficiency and passion for cooking by showcasing your culinary skills and hobbies. Elevate your culinary endeavors into a matured business venture.</p>
+        // <button className={styles.button}>
+        //                 Make a Request
+        //              </button>
+        //                 </div>
+        //             </div>
+        //         </div>
+
+        <div className={style.container}>
+
+            <div className={style.image}>
+                <img className={style.img1} src={img} alt="About Us" />
             </div>
+            <div className={style.btntext}>
+            <div className={style.text}>
+                <h2 className={style.aboutTitle}> Discover your favorite  meals</h2>
+                <p className={style.phrase1}>
+                  
+Discover top options for healthy, time-saving recipes from Lebanon's finest chefs who have a genuine passion for cooking.</p>
+            </div>
+            <Button
+                        onClick={goToSignUpPage}
+                        variant="contained"
+                        sx={{
+                          bgcolor: "#b55d4e",
+                          transition:
+                            "background-color 0.3s ease, color 0.3s ease",
+                          textTransform: "none",
+                          "&:hover": {
+                            bgcolor: "#b55d4e",
+                            color: "white",
+                          },
+                        }}
+                      >
+                        Sign Up
+                      </Button>
+                </div>
         </div>
+
     );
 }
 

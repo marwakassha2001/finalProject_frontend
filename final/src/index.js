@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
+import { CartProvider } from "./Context/CartContext";
 import {AuthProvider} from "./Context/AuthContext.js"
 import reportWebVitals from './reportWebVitals';
 
@@ -11,7 +12,9 @@ root.render(
   <React.StrictMode>
      <BrowserRouter>
      <AuthProvider>
+     <CartProvider>
      <App />
+     </CartProvider>
      </AuthProvider>
      </BrowserRouter>
   </React.StrictMode>

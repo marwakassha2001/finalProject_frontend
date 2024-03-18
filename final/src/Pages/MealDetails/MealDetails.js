@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -7,9 +7,11 @@ import imageb from "../../Assets/Asset 1 (1).svg"
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Sidebar from '../../Layouts/Sidebar/Sidebar'
 import image from "../../Assets/AdobeStock_211143160_Preview.jpeg"
+import { CartContext } from "../../Context/CartContext";
 
 export default function MealDetails() {
   const [count, setCount] = useState(1);
+  const { increaseCartItem, setCartItems } = useContext(CartContext);
   const [meal, setMeal] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const { slug } = useParams();
@@ -37,6 +39,48 @@ export default function MealDetails() {
   useEffect(() => {
     getMeal();
   }, [slug]);
+
+
+  const addToCart = (meal) => {
+    const currentItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingItemIndex = currentItems.findIndex(
+      (item) => item.id === meal._id
+    );
+
+    if (existingItemIndex !== -1) {
+      currentItems[existingItemIndex].quantity += count;
+      currentItems[existingItemIndex].totalPrice =
+        currentItems[existingItemIndex].quantity *
+        currentItems[existingItemIndex].price;
+    } else {
+      currentItems.push({
+        id: meal._id,
+        name: meal.name,
+        price: meal.price,
+        quantity: count,
+        slug: slug,
+        image: meal.image,
+        totalPrice: count * meal.price,
+      });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(currentItems));
+
+    // Update the total number of items in the cart
+    updateCartItemCount();
+};
+
+const isProductInCart = (productId) => {
+    const currentItems = JSON.parse(localStorage.getItem("cart")) || [];
+    return currentItems.some((item) => item.id === productId);
+};
+
+const updateCartItemCount = () => {
+    const currentItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalItems = currentItems.reduce((acc, item) => acc + item.quantity, 0);
+    setCartItems(totalItems);
+    increaseCartItem();
+};
 
   return (
     <div className={StyleSingleProduct.container}>
@@ -101,6 +145,8 @@ export default function MealDetails() {
               <Button
                 size="large"
                 variant="contained"
+                disabled={isProductInCart(meal._id)}
+                onClick={() => addToCart(meal)}
                 sx={{
                   bgcolor: "#974E44",
                   transition: "background-color 0.3s ease, color 0.3s ease",
@@ -111,7 +157,14 @@ export default function MealDetails() {
                 }}
                 startIcon={<AddShoppingCartIcon />}
               >
-                Add to Cart
+                 {isProductInCart(meal._id) ? (
+                      "Already in Cart"
+                    ) : (
+                      <>
+                        <AddShoppingCartIcon />
+                        Add to cart
+                      </>
+                    )}{" "}
               </Button>
             </span>
           </article>

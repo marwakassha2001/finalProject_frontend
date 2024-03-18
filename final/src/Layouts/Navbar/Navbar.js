@@ -10,20 +10,15 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { AuthContext } from "../../Context/AuthContext";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-// import { CartContext } from "../../Context/CartContext";
+import { CartContext } from "../../Context/CartContext";
 
 function Navbar() {
   const [collapesed, setCollapsed] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-  // const { cartItemCount, setCartItemCount } = useContext(CartContext);
-  // const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const { cartItemCount, setCartItemCount } = useContext(CartContext);
   const [profOpen, setProfileOpen] = useState(false);
 
-  // const handleLanguageChange = (e) => {
-  //   setSelectedLanguage(e.target.value);
-  // };
 
-  // nav with active
   const navigate = useNavigate();
   useEffect(() => {
     function updateSize() {
@@ -271,7 +266,7 @@ function Navbar() {
                     }}
                   >
                     <Badge
-                      // badgeContent={cartItemCount}
+                      badgeContent={cartItemCount}
                       color="secondary"
                       sx={{
                         color: "black",

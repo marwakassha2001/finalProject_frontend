@@ -54,28 +54,28 @@ export default function Meals() {
   }
 console.log(meals)
   console.log(meals, 'mmmmmmmmmmm')
-  // const filteredProducts = meals ? meals.filter((meal) =>
-  //   meal.user.firstName.toLowerCase().includes(searchInput.toLowerCase())
-  // )
-  //   .filter((meal) => {
-  //     const matchesCategory =
-  //       selectedCategories.length === 0 ||
-  //       selectedCategories.some(
-  //         (categoryId) => categoryId === meal.category._id
-  //       );
+  const filteredProducts = meals ? meals.filter((meal) =>
+    meal.user.firstName.toLowerCase().includes(searchInput.toLowerCase())
+  )
+    .filter((meal) => {
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.some(
+          (categoryId) => categoryId === meal.category._id
+        );
 
-  //     return matchesCategory;
-  //   }) : [];
+      return matchesCategory;
+    }) : [];
 
-  // console.log(filteredProducts, 'llllllllll')
+  console.log(filteredProducts, 'llllllllll')
 
 
-  // const startIndex = (currentPage - 1) * productsPerPage;
-  // const endIndex = startIndex + productsPerPage;
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
 
-  // const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
 
-  // const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
   useEffect(() => {
     if(id){
@@ -89,7 +89,7 @@ console.log(meals)
   return (
     <div>
       <section className={style.pageWrapper}>
-        {/* {(isLoading) ? (<div>Loadinggg!11</div>) : (
+        {(isLoading) ? (<div>Loadinggg!11</div>) : (
           <div className={style.sidebar}>
             <Sidebar
               setSelectedCategories={setSelectedCategories}
@@ -97,13 +97,13 @@ console.log(meals)
               setCheckboxes={setCheckboxes}
               mealsData={meals}
             />
-          </div>)} */}
+          </div>)}
         <div className={style.titleCard}>
           <div >
             <h1> <p className={style.title}> Meals</p></h1>
           </div>
           <div className={style.mealscard}>
-          {meals && meals.map((meal, i) => (
+          {paginatedProducts && paginatedProducts.map((meal, i) => (
     <div className={style.cardWrapper} key={meal.id}>
       <MealCard
         title={meal.name}

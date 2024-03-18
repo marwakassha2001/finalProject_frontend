@@ -127,6 +127,8 @@ width: 100%;
 
   .container nav {
       width: 100%;
+      flex-direction: column;
+      display: flex;
   }
   .bottom{
     display: flex;
