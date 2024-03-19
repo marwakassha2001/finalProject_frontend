@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import style from "./MealByCook.module.css";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
@@ -23,7 +23,7 @@ const MealByCook = ({image,price,slug, title,cook,city,imagecook,category}) => {
           display: "flex",
           flexDirection: "column",
         }}
-        to={`/mealDetails/${slug}`}></Link>
+        to={`/mealDetails/${slug}`}>
       <Card sx={{ maxWidth: 330, borderRadius: 4, margin: 2 }}>
         <CardMedia
           component="img"
@@ -45,10 +45,11 @@ const MealByCook = ({image,price,slug, title,cook,city,imagecook,category}) => {
         </div>
         <CardContent sx={{ paddingBottom: 0 }}>
           <Typography variant="body2" color="text.secondary">
-            {title}title
+            {title}
           </Typography>
         </CardContent>
       </Card>
+      </Link>
     </div>
   );
 }

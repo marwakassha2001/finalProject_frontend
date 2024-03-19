@@ -1,6 +1,6 @@
 .section{
     width: 100%;
-    height: 20rem;
+    height: 23rem;
     gap: 1;
     background-color: #FFF0ED;
     display: flex;
@@ -14,6 +14,15 @@ h1{
     justify-content: center;
     align-items: center;
 }
+.inputbtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 40%;
+
+}
+
 
 .phrase{
     color: rgb(141, 137, 137);
@@ -37,7 +46,7 @@ h1{
 }
 
 .button{
-    width: 20%;
+    width: 100%;
     height: 3rem;
     border: none;
     color: white;
@@ -56,6 +65,7 @@ h1{
 
   .section {
       display: flex;
+      height: 28rem;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -69,6 +79,12 @@ h1{
       font-weight: 500;
   }
 
+  .button{
+    margin-bottom: 2rem;
+}
+.section{
+    height: 28rem;
+}
 
   .image {
       height: 60%;
@@ -83,11 +99,12 @@ h1{
 
 @media (max-width:818px) {
 
-  .allIcon {
-
-      width: 100%;
-
-  }
+    .button{
+        margin-bottom: 2rem;
+    }
+    .section{
+        height: 28rem;
+    }
 }
 
 @media (max-width:670px) {
@@ -98,7 +115,10 @@ h1{
       width: 100%;
   }
   .button{
-    width: 60%;
+    margin-bottom: 2rem;
+}
+.section{
+    height: 28rem;
 }
 
 }
@@ -106,11 +126,12 @@ h1{
 @media (max-width:530px) {
   .section {
       width: 100%;
+      height: 28rem;
       align-items: center;
       justify-content: center;
   }
   .button{
-    width: 60%;
+    margin-bottom: 2rem;
 }
 
 }
@@ -122,9 +143,10 @@ h1{
 }
 .section{
     width: 100%;
+    height: 27rem;
 }
 .button{
-    width: 60%;
+    margin-bottom: 2rem;
 }
 
 }

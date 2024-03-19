@@ -11,6 +11,7 @@ import imageFood3 from "../../Assets/goodimage.jpg";
 import imageCook1 from "../../Assets/shein jackets.jpg";
 import imageCook from "../../Assets/shein Zip front suede biker jackets .jpg";
 import Sidebar from '../../Layouts/Sidebar/Sidebar';
+import Loading from "../../Components/Loading/Loading";
 import { fetchCategory } from "../../data/categoryData";
 
 export default function Meals() {
@@ -89,7 +90,7 @@ console.log(meals)
   return (
     <div>
       <section className={style.pageWrapper}>
-        {(isLoading) ? (<div>Loadinggg!11</div>) : (
+        {(isLoading) ? <Loading/> : (
           <div className={style.sidebar}>
             <Sidebar
               setSelectedCategories={setSelectedCategories}

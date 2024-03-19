@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import StyleSingleProduct from "./MealDetails.module.css"
 import imageb from "../../Assets/Asset 1 (1).svg"
+import Loading from "../../Components/Loading/Loading";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Sidebar from '../../Layouts/Sidebar/Sidebar'
 import image from "../../Assets/AdobeStock_211143160_Preview.jpeg"
@@ -85,7 +86,7 @@ const updateCartItemCount = () => {
   return (
     <div className={StyleSingleProduct.container}>
       {isLoading ? (
-        <p>Loading...</p>
+   <Loading/>
       ) : meal ? (
         <>
           <article className={StyleSingleProduct.imageArticle}>

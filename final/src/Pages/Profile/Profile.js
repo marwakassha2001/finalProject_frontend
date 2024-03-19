@@ -3,6 +3,8 @@ import ProfileCard from "../../Components/ProfileCard/ProfileCard.js";
 import MealByCook from "../../Components/MealByCook/MealByCook";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import style from "./Profile.module.css"
+import styled from "@emotion/styled";
 
 const ProfilePage = () => {
   const [cook, setCook] = useState(null);
@@ -34,7 +36,7 @@ const ProfilePage = () => {
       );
       if (response && response.data) {
         setMeals(response.data);
-        console.log("marwa two i'm here");
+        console.log(meals,'mealsssssss');
         setIsLoading(false);
       }
     } catch (error) {
@@ -48,6 +50,8 @@ const ProfilePage = () => {
     console.log('heree')
   }, [id]);
 // console.log(cook.user)
+
+
   return (
     <>
       {cook && (
@@ -65,30 +69,35 @@ const ProfilePage = () => {
               firstName={cook.firstName}
               lastName={cook.lastName}
               city={cook.city}
+              phone={cook.phoneNumber}
+              email={cook.email}
               image={cook.image}
             />
           </span>
-          <span
-            style={{
-              marginTop: "2rem",
-              display: "flex",
-              justifyContent: "start",
-              marginLeft: "4rem",
-              width: "90%",
-            }}
-          >
-         {meals && meals.map((meal, index) => (
-    <MealByCook
-      key={index}
+
+          <div className={style.titleCard}>
+          <div >
+            <h1> <p className={style.title}>  My  Meals</p></h1>
+          </div>
+          <div className={style.mealscard}>
+          {meals && meals.map((meal, i) => (
+    <div className={style.cardWrapper} key={meal.id}>
+      <MealByCook
       id={meal._id}
       slug={meal.slug}
       name={meal.name}
       price={meal.price}
       image={meal.image}
-    />
+      />
+    </div>
   ))}
+          </div>
+        </div>
 
-          </span>
+
+
+
+
         </>
       )}
     </>

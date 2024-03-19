@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "./Cooks.module.css";
 import { fetchCooks } from "../../data/cookData";
 import { Link, useParams } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
 import CookCard from "../../Components/CookCard/CookCard.js";
 import imageFood from "../../Assets/AdobeStock_211143160_Preview.jpeg";
 import imageFood1 from "../../Assets/AdobeStock_203047826_Preview.jpeg";
@@ -57,15 +58,12 @@ console.log(cooks)
 
   return (
       <section className={style.pageWrapper}>
-        {isLoading ? (
-          <div>Loadinggg!11</div>
-        ) : (
-          <div className={style.titleCard}>
-            <div>
-              <h1>
+         <h1>
                 <p className={style.title}> Cooks</p>
               </h1>
-            </div>
+        {isLoading ? (
+          <Loading/>
+        ) : (
             <div className={style.mealscard}>
               {cooks.map((cook, i) => (
                 <div className={style.cardWrapper}>
@@ -79,7 +77,6 @@ console.log(cooks)
                 </div>
               ))}
             </div>
-          </div>
         )}
       </section>
   );

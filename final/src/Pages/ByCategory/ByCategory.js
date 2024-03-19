@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./ByCategory.module.css";
 import { fetchProducts } from "../../data/mealsData";
+import Loading from "../../Components/Loading/Loading";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import MealCard from '../../Components/MealCard/MealCard';
@@ -58,15 +59,15 @@ export default function Meals() {
         slug={meal.slug}
         image={meal.image}
         category={meal.category?.name} // Use optional chaining here
-        cook={meal.user.firstName}
-        city={meal.user.address}
+        cook={meal.user?.firstName} // Use optional chaining here
+        city={meal.user?.address} // Use optional chaining here
         price={meal.price}
-        imagecook={meal.user.image}
+        imagecook={meal.user?.image} // Use optional chaining here
       />
     </div>
   ))
 ) : (
-  <div>No meals found</div>
+  <Loading/>
 )}
           </div>
         </div>

@@ -8,8 +8,10 @@
     }
     .mealscard{
         display: flex;
+        width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
+        margin-bottom: 8rem;
     }
     
     .title{
@@ -25,12 +27,8 @@
     
     .titleCard{
         display: flex;
-        margin-left: 3rem;
         margin-top: -1.7rem;
         flex-direction: column;
-    }
-    .sidebar{
-       width: 15%; 
     }
     .cardWrapper{
         transition: 0.2s ease-in-out;

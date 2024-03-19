@@ -2,7 +2,7 @@
   background-color: #fefefe;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  width: 90%;
+  width: 100%;
   height: 100px;
   display: flex;
   justify-content: space-between;
@@ -132,6 +132,7 @@ width: 100%;
   }
   .bottom{
     display: flex;
+    margin-top: 2rem;
     flex-direction: column;
   }
 }
@@ -159,6 +160,7 @@ width: 100%;
   }
   .bottom{
     display: flex;
+    margin-top: 2rem;
     flex-direction: column;
   }
 }

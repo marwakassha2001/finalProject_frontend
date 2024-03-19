@@ -215,23 +215,6 @@ function Navbar() {
                         <li className={Styles.profileLi}>
                           <Button
                             variant="outlined"
-                            onClick={() => navigate("/profile")}
-                            sx={{
-                              padding: "0.7rem 1.5rem",
-                              borderColor: "transparent",
-                              color: "#b55d4e",
-                              textTransform: "none",
-                              ":hover": {
-                                borderColor: "transparent",
-                              },
-                            }}
-                          >
-                            Profile
-                          </Button>
-                        </li>
-                        <li className={Styles.profileLi}>
-                          <Button
-                            variant="outlined"
                             onClick={() => logOut()}
                             sx={{
                               padding: "0.7rem 1.5rem",
@@ -451,24 +434,6 @@ function Navbar() {
                           </Button>
                         </li>
                       )}
-                      <li className={Styles.profileLi2}>
-                        <Button
-                          variant="outlined"
-                          onClick={() => navigate("/profile")}
-                          sx={{
-                            padding: "1.5rem 1.5rem",
-                            height: "2rem",
-                            borderColor: "transparent",
-                            color: "#b55d4e",
-                            ":hover": {
-                              borderColor: "transparent",
-                            },
-                            textTransform: "none",
-                          }}
-                        >
-                          Profile
-                        </Button>
-                      </li>
                       <li className={Styles.profileLi2}>
                         <Button
                           variant="outlined"

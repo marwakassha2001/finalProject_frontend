@@ -9,97 +9,30 @@ import { AuthContext } from "../../Context/AuthContext";
 import { Box, FormControl, InputLabel, TextField } from "@mui/material";
 import useApi from "../../Hooks/UseApi";
 import NoteModal from "../Note/Note";
-// import { ToastContainer, toast } from "react-toastify";
-// import { CartContext } from "../../Context/CartContext";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import { CartContext } from "../../Context/CartContext";
 
 export default function CardCheckout({ totalPrice, cartItems }) {
-//   const { setCartItemCount, setCartItems } = useContext(CartContext);
+  const { setCartItemCount, setCartItems } = useContext(CartContext);
   const { user } = useContext(AuthContext);
-  const { apiCall, error } = useApi();
-  const {
-    isPending: isDeliveryPending,
-    isError: isDeliveryError,
-    data: deliveryData,
-  } = useQuery({
-    queryKey: ["deliveryData"],
-    queryFn: async () => {
-      try {
-        const response = await axiosInstance.get(
-          `${process.env.REACT_APP_BACKEND_ENDPOINT}delivery`
-        );
-        return response.data;
-      } catch (error) {
-        console.error("Error fetching delivery:", error);
-        throw error;
-      }
-    },
-  });
-
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
   const [openNote, setOpenNote] = useState(false);
 
-  const handleCountryChange = (event) => {
-    const countryValue = event.target.value;
-    setSelectedCountry(countryValue);
-    setSelectedCity("");
-    setSelectedPrice(null);
-  };
-
-  const handleCityChange = (event) => {
-    const cityValue = event.target.value;
-    setSelectedCity(cityValue);
-
-    // Find the corresponding delivery option and update the price
-    const selectedOption = deliveryData.find(
-      (option) =>
-        option.country === selectedCountry && option.city === cityValue
-    );
-
-    if (selectedOption) {
-      setSelectedPrice(selectedOption.price);
-    } else {
-      setSelectedPrice(null);
-    }
-  };
 
   const SendOrder = async (e) => {
-    e.preventDefault();
-    if (!user) {
-      setOpenNote(true);
-      return;
-    } else {
-      try {
-        await apiCall({
-          method: "post",
-          url: "/order",
-          data: {
-            userId: user.id,
-            address: address,
-            country: selectedCountry,
-            city: selectedCity,
-            orderDetails: cartItems,
-            deliveryFee: selectedPrice,
-          },
-        });
-
-        if (error) {
-        //   toast.error("An error occured, order not sent !!");
-        } else {
-          localStorage.removeItem("cart");
-        //   toast.success("Order sent Successfuly ");
-        //   toast.success("Items removed from your cart ");
-        //   setCartItems([]);
-        //   setCartItemCount(null)
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    localStorage.removeItem("cart");
+    toast.success("Order sent Successfully", {
+      autoClose: 6000, // Adjust the duration (in milliseconds) as needed
+    });
+    toast.success("Items removed from your cart", {
+      autoClose: 6000, // Adjust the duration (in milliseconds) as needed
+    });
+    setCartItems([]);
+    setCartItemCount(null);
   };
-
   return (
     <Box
       className={styles.cardPage}
@@ -117,14 +50,14 @@ export default function CardCheckout({ totalPrice, cartItems }) {
           borderRadius: "4px",
         },
         "& .Mui-focused.MuiFormLabel-root ": {
-          color: "#C86823 !important",
+          color: "#b27068 !important",
         },
         ".MuiFormLabel-root": {
           fontSize: "1.1rem",
         },
       }}
     >
-      {/* <ToastContainer /> */}
+   
       <div className={styles.cardWrapper}>
         <p className={styles.titleCard}>Checkout your Order</p>
         <form className={styles.form} onSubmit={(e) => SendOrder(e)}>
@@ -133,73 +66,6 @@ export default function CardCheckout({ totalPrice, cartItems }) {
             <span>${totalPrice.toFixed(2)}</span>
           </div>
           <div className={`${styles.deliveryPart} ${styles.form}`}>
-            <FormControl
-              required
-              fullWidth
-              sx={{
-                minWidth: 50,
-              }}
-            >
-              <InputLabel htmlFor="Country">Country</InputLabel>
-              <Select
-                value={selectedCountry}
-                onChange={(e) => handleCountryChange(e)}
-                sx={{ minWidth: 50 }}
-                name="Country"
-                label="Country"
-              >
-                {isDeliveryPending ? (
-                  <MenuItem disabled>Loading delivery options...</MenuItem>
-                ) : isDeliveryError ? (
-                  <MenuItem disabled>Error loading delivery options</MenuItem>
-                ) : (
-                  [
-                    ...new Set(deliveryData.map((option) => option.country)),
-                  ].map((country) => (
-                    <MenuItem key={country} value={country}>
-                      {country}
-                    </MenuItem>
-                  ))
-                )}
-              </Select>
-            </FormControl>
-            <FormControl
-              fullWidth
-              sx={{
-                minWidth: 50,
-              }}
-              required
-            >
-              <InputLabel htmlFor="City">City</InputLabel>
-              <Select
-                value={selectedCity}
-                onChange={(e) => handleCityChange(e)}
-                sx={{ minWidth: 50 }}
-                name="City"
-                label="City"
-                disabled={!selectedCountry}
-              >
-                {isDeliveryPending ? (
-                  <MenuItem disabled>Loading cities...</MenuItem>
-                ) : isDeliveryError ? (
-                  <MenuItem disabled>Error loading cities</MenuItem>
-                ) : (
-                  deliveryData
-                    .filter(
-                      (deliveryOption) =>
-                        deliveryOption.country === selectedCountry
-                    )
-                    .map((filteredOption) => (
-                      <MenuItem
-                        key={filteredOption._id}
-                        value={filteredOption.city}
-                      >
-                        {filteredOption.city}
-                      </MenuItem>
-                    ))
-                )}
-              </Select>
-            </FormControl>
             <TextField
               required
               id="outlined-required"
@@ -207,10 +73,14 @@ export default function CardCheckout({ totalPrice, cartItems }) {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
             />
+              <TextField
+              required
+              id="outlined-required"
+              label="Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
             <p>
-              {selectedPrice !== null
-                ? `Delivery Fees: $${selectedPrice.toFixed(2)}`
-                : "Please select a country and city to see the delivery fees."}
             </p>
           </div>
           <div className={styles.totalPrice}>
@@ -233,6 +103,7 @@ export default function CardCheckout({ totalPrice, cartItems }) {
             >
               Checkout
             </Button>
+            <ToastContainer />
           </div>
         </form>
       </div>
