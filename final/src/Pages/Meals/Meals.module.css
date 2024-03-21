@@ -1,10 +1,14 @@
 .pageWrapper{
-width: 90%;
+width: 80%;
 margin: 0 auto;
 gap: 2%;
 display: flex;
 align-items: start;
 flex-direction: row;
+}
+
+.allPageMeal{
+width: 90%;
 }
 .mealscard{
     display: flex;

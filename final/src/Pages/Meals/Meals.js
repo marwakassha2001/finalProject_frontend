@@ -88,7 +88,7 @@ console.log(meals)
   }, []);
   // if (meals) console.log(meals[0].mealDetails[0].price)
   return (
-    <div>
+    <div className={style.allPageMeal}>
       <section className={style.pageWrapper}>
         {(isLoading) ? <Loading/> : (
           <div className={style.sidebar}>

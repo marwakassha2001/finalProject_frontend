@@ -8,10 +8,9 @@
     }
     .mealscard{
         display: flex;
-        width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
-        margin-bottom: 8rem;
+        justify-content: center;
     }
     
     .title{
@@ -19,7 +18,7 @@
         color: #B55D51;
         display: flex;
         align-items: center;
-        margin-left: 1rem;
+        /* margin-left: 1rem; */
         justify-content: start;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: 4rem;
@@ -27,8 +26,10 @@
     
     .titleCard{
         display: flex;
+        margin-left: 3rem;
         margin-top: -1.7rem;
         flex-direction: column;
+        width:100%
     }
     .cardWrapper{
         transition: 0.2s ease-in-out;
@@ -37,4 +38,84 @@
         transform: scale(1.1);
         cursor: pointer;
         transition: 0.2s ease-in-out;
+    }
+
+
+    @media screen and (max-width : 1200px) {
+
+    }
+    
+    @media screen and (max-width : 960px) {
+   
+       .titleCard{
+           margin-left: 0;
+       }
+       .sidebar{
+           width: 25%; 
+        }
+    }
+    
+    @media screen and (max-width : 690px) {
+   
+       .pageWrapper{
+         
+           flex-direction: column;
+           justify-content: start;
+           align-items: start;
+           }
+           .sidebar{
+               width: 100%; 
+            }
+            .titleCard{
+               margin-left: 0;
+           }
+   
+   }
+    
+    @media screen and (max-width: 460px) {
+   
+       .pageWrapper{
+         
+           flex-direction: column;
+           justify-content: start;
+           align-items: start;
+           }
+            .titleCard{
+              margin-left: 0.2rem;
+           }
+   
+    }
+    
+    @media screen and (max-width : 350px ) {
+       .pageWrapper{
+         
+           flex-direction: column;
+           justify-content: start;
+           align-items: start;
+           }
+           .titleCard{
+               margin-left: 0;
+           }
+    }
+   
+   
+   
+    @media screen and (max-width : 300px ) {
+       .pageWrapper{
+         
+           flex-direction: column;
+           justify-content: start;
+           align-items: start;
+           }
+    }
+   
+    @media screen and (max-width : 220px ) {
+       .pageWrapper{
+         
+           flex-direction: column;
+           justify-content: start;
+           align-items: start;
+           width: 100%;
+           }
+   
     }

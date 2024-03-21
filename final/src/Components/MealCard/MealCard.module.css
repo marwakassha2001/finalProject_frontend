@@ -1,124 +1,140 @@
-.article{
+.pageWrapper{
+    width: 90%;
+    margin: 0 auto;
+    gap: 2%;
     display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-    border: 1px solid rgb(222, 213, 213);
-    width: 18%;
-    gap: 1rem;
-    margin: 2rem;
-}
-
-.phrase{
-color: black;
-padding-left: 0.5rem;
-
-}
-
-.rate{
-    padding-left: 0.5rem;
-}
-.cookInfo{
-    display: flex;
+    align-items: start;
     flex-direction: row;
-    gap: 9rem;
-    align-items: center;
-    padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
-
-}
-.catphrase{
-    color: #B55D51;
-}
-
-.profileImg{
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-}
-
-.categImg{
-    width: 100%;
-    height:100% ;
-    object-fit:cover;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-.nameImg{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.price{
-    padding-left: 0.5rem;
-}
-
-.imgContaier{
-    height: 20rem;
-    max-height: 20rem;
-    min-height: 20rem;
-    min-width: 100%;
-    max-width: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-/* .cardMeal{
-    width: 100%;
-} */
-
-
-/* @media screen and (max-width : 1200px) {
-    .cardMeal{
-        width: 24rem;
     }
-
-}
-
-@media screen and (max-width : 960px) {
-
-    .cardMeal{
-        width: 20rem;
+    .mealscard{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* width: 100%; */
+        /* gap: 1.5rem; */
+        justify-content: center;
     }
-}
-
-@media screen and (max-width : 690px) {
-
-    .cardMeal{
-        width: 18rem;
+    
+    .title{
+        font-size: 45px;
+        color: #B55D51;
+        display: flex;
+        align-items: center;
+        /* margin-left: 1rem; */
+        justify-content: start;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 4rem;
     }
-
-}
-
-@media screen and (max-width: 460px) {
-
-    .cardMeal{
-        width: 15rem;
+    
+    .titleCard{
+        display: flex;
+        margin-left: 3rem;
+        margin-top: -1.7rem;
+        flex-direction: column;
+        width:100%
     }
-
-}
-
-@media screen and (max-width : 350px ) {
-    .cardMeal{
-        width: 14rem;
+    .sidebar{
+       width: 15%; 
     }
-}
-
-
-
-@media screen and (max-width : 300px ) {
-    .cardMeal{
-        width: 11rem;
+    .cardWrapper{
+        transition: 0.2s ease-in-out;
     }
-
-}
-
-@media screen and (max-width : 220px ) {
-    .cardMeal{
-        width: 10rem;
+    .cardWrapper:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
     }
-
-} */
+    
+    
+    
+    @media screen and (max-width : 1200px) {
+    
+     }
+     
+     @media screen and (max-width : 960px) {
+    
+        .titleCard{
+            margin-left: 0;
+        }
+        .sidebar{
+            width: 25%; 
+         }
+     }
+     
+     @media screen and (max-width : 690px) {
+    
+        .pageWrapper{
+          
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            }
+            .sidebar{
+                width: 100%; 
+             }
+             .titleCard{
+                margin-left: 0;
+            }
+    
+    }
+     
+     @media screen and (max-width: 460px) {
+    
+        .pageWrapper{
+          
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            }
+            .sidebar{
+                width: 100%; 
+             }
+             .titleCard{
+               margin-left: 0.2rem;
+            }
+    
+     }
+     
+     @media screen and (max-width : 350px ) {
+        .pageWrapper{
+          
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            }
+            .sidebar{
+                width: 100%; 
+             }
+            .titleCard{
+                margin-left: 0;
+            }
+     }
+    
+    
+    
+     @media screen and (max-width : 300px ) {
+        .pageWrapper{
+          
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            }
+            .sidebar{
+                width: 100%; 
+             }
+    
+     }
+    
+     @media screen and (max-width : 220px ) {
+        .pageWrapper{
+          
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            width: 100%;
+            }
+            .sidebar{
+                width: 100%; 
+             }
+    
+     }
