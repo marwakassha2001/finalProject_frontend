@@ -24,6 +24,7 @@ export default function Home() {
             {/* <Testimonial/> */}
             {/* <ChefCard/> */}
             <OurMession/>
+            <Testimonial/>
             <Request/>
             </div>
   )

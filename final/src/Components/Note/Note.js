@@ -14,7 +14,7 @@ const NoteModal = ({ openNote, handleClose }) => {
     transform: "translate(-50%, -50%)",
     width: "25rem",
     bgcolor: "white",
-    border: "2px solid #171B24",
+    border: "2px solid #B55D51",
     boxShadow: 24,
     p: 4,
     display: "flex",
@@ -51,7 +51,7 @@ const NoteModal = ({ openNote, handleClose }) => {
               variant="h5"
               component="h5"
               sx={{
-                color: "#C86823 !important",
+                color: "#B55D51 !important",
                 fontSize: "1.5rem",
                 fontWeight: "bold",
               }}
@@ -66,7 +66,7 @@ const NoteModal = ({ openNote, handleClose }) => {
             >
               <CloseIcon
                 sx={{
-                  color: "#C86823",
+                  color: "#B55D51",
                 }}
               />
             </IconButton>
@@ -109,10 +109,10 @@ const NoteModal = ({ openNote, handleClose }) => {
                 variant="contained"
                 size="large"
                 sx={{
-                  bgcolor: "#C86823",
+                  bgcolor: "#B55D51",
                   transition: "background-color 0.3s ease, color 0.3s ease",
                   "&:hover": {
-                    bgcolor: "#A0471D",
+                    bgcolor: "#B55D51",
                     color: "white",
                   },
                   textTransform: 'none'

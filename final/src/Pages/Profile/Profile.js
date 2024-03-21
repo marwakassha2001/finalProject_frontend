@@ -53,7 +53,7 @@ const ProfilePage = () => {
 
 
   return (
-    <>
+   <div className={style.pageprof}>
       {cook && (
         <>
           <span
@@ -76,9 +76,7 @@ const ProfilePage = () => {
           </span>
 
           <div className={style.titleCard}>
-          <div >
-            <h1> <p className={style.title}>  My  Meals</p></h1>
-          </div>
+            <h1 className={style.titleprofile}>  My  Meals</h1>
           <div className={style.mealscard}>
           {meals && meals.map((meal, i) => (
     <div className={style.cardWrapper} key={meal.id}>
@@ -100,7 +98,7 @@ const ProfilePage = () => {
 
         </>
       )}
-    </>
+    </div>
   );
 };
 export default ProfilePage;

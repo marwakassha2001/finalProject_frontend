@@ -6,7 +6,7 @@
     margin-top: 30px;
   }
   .missinSection{
-    margin-bottom: 3rem;
+    margin-bottom: 7rem;
   }
   
   .titlemession {
@@ -30,7 +30,9 @@
     width: 80%;
     margin: auto;
   }
-  
+  .card img{
+    width: 20%;
+  }
   .card {
     border: 1px solid #ccc;
     text-align: center;
@@ -55,6 +57,9 @@
       grid-template-columns: repeat(2, 1fr);
     }
   
+    .card img{
+      width: 20%;
+    }
     .card {
       padding: 3rem;
     }
@@ -69,6 +74,25 @@
       padding: 2rem;
     }
     .titlemession {
+      font-size: 2.5rem;
+    }
+    .card img{
+      width: 18%;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  
+    .card {
+      padding: 2rem;
+    }
+    .titlemession {
       font-size: 1.8rem;
+    }
+    .card img{
+      width: 18%;
     }
   }

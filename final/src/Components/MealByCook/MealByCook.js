@@ -24,7 +24,7 @@ const MealByCook = ({image,price,slug, title,cook,city,imagecook,category}) => {
           flexDirection: "column",
         }}
         to={`/mealDetails/${slug}`}>
-      <Card sx={{ maxWidth: 330, borderRadius: 4, margin: 2 }}>
+      <Card sx={{ maxWidth: 250, borderRadius: 4, margin: 2 }}>
         <CardMedia
           component="img"
           height="265"

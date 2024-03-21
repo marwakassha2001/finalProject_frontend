@@ -4,12 +4,15 @@ import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import SwiperCore from 'swiper';
 import 'swiper/css'; // Import main Swiper CSS
 import 'swiper/css/navigation';
+import { RiDoubleQuotesL } from 'react-icons/ri';
 import Swiper from 'swiper';
 import 'swiper/css'; // Import main Swiper CSS
 import 'swiper/css/navigation'; // Navigation module styles (optional)
 import 'swiper/css/pagination'; // Pagination module styles (optional)
 import 'swiper/css/effect-fade'// Optional: import fade effect css
-import image from '../../Assets/shein Zip front suede biker jackets .jpg'; // Adjust the path
+import image from '../../Assets/pic1.jpg'; 
+import image1 from '../../Assets/pic2.jpg'; 
+import image2 from '../../Assets/pic3.jpg'; 
 
 const Testimonial = () => {
   useEffect(() => {
@@ -32,49 +35,34 @@ const Testimonial = () => {
   }, []);
   
     return (
-      <div className={styles.sectionT}>
-      <div className={styles.blogSlider}>
-      <div className={`${styles.blogSliderWrapper} ${styles.swiperWrapper}`}>
-
-        <div className={`${styles.blogSliderItem} ${styles.swiperSlide}`}>
-          <div className={styles.blogSliderImg}>
-            <img src={Image} alt="" />
-          </div>
-          <div className={styles.blogSliderContent}>
-            <span className={styles.blogSliderCode}>26 December 2019</span>
-            <div className={styles.blogSliderTitle}>Lorem Ipsum Dolor</div>
-            <div className={styles.blogSliderText}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
-            <a href="#" className={styles.blogSliderButton}>READ MORE</a>
-          </div>
-        </div>
-        
-        <div className={`${styles.blogSliderItem} ${styles.swiperSlide}`}>
-          <div className={styles.blogSliderImg}>
-            <img src={Image}  alt="" />
-          </div>
-          <div className={styles.blogSliderContent}>
-            <span className={styles.blogSliderCode}>26 December 2019</span>
-            <div className={styles.blogSliderTitle}>Lorem Ipsum Dolor2</div>
-            <div className={styles.blogSliderText}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
-            <a href="#" className={styles.blogSliderButton}>READ MORE</a>
-          </div>
-        </div>
-        
-        <div className={`${styles.blogSliderItem} ${styles.swiperSlide}`}>
-          <div className={styles.blogSliderImg}>
-            <img src={Image}  alt="" />
-          </div>
-          <div className={styles.blogSliderContent}>
-            <span className={styles.blogSliderCode}>26 December 2019</span>
-            <div className={styles.blogSliderTitle}>Lorem Ipsum Dolor</div>
-            <div className={styles.blogSliderText}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
-            <a href="#" className={styles.blogSliderButton}>READ MORE</a>
-          </div>
-        </div>
-        
+      <div className={styles.sectionContainer}>
+      <div className={styles.header}>
+        <h1 className={styles.titletestimonial}>What our clients say about us.</h1>
       </div>
-      <div className={styles.blogSliderPagination}></div>
-    </div>
+      <div className={styles.testimonials__grid}>
+        {/* Individual Testimonial Cards */}
+        <div className={styles.card}>
+        <span><RiDoubleQuotesL /></span>
+          <p>This app simplifies meal orders, offering a seamless experience for enjoying delicious, hassle-free food right at my fingertips. With its user-friendly interface and quick delivery, it's become my go-to solution for satisfying cravings without the fuss.</p>
+          <hr />
+          <img src={image} alt="user" />
+          <p className={styles.name}>Jana Ali</p>
+        </div>
+        <div className={styles.card}>
+        <span><RiDoubleQuotesL /></span>
+          <p>Thanks to the food delivery app, I now enjoy the convenience of delicious, homemade meals delivered right to my doorstep, making every dinner feel like a special occasion</p>
+          <hr />
+          <img src={image1} alt="user" />
+          <p className={styles.name}>Joahn Doe</p>
+        </div>
+        <div className={styles.card}>
+        <span><RiDoubleQuotesL /></span>
+          <p>The food delivery app not only satisfies my cravings but also empowers me to showcase my culinary skills from the comfort of my own kitchen, delighting friends and family with homemade specialties</p>
+          <hr />
+          <img src={image2} alt="user" />
+          <p className={styles.name}>Layla Hammoud</p>
+        </div>
+      </div>
     </div>
     );
   };
