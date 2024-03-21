@@ -14,25 +14,6 @@ function AboutSection() {
         navigate("/SignUp");
       };
     return (
-        //         <div className={styles.about}>
-        //             <h1  className={styles.title}>Why Choose Us </h1>
-        //             <div className={styles.textGrid}>
-        //             <div className={styles.image}>
-        //     <img src={img}/>
-        //                 </div>
-        //                 <div className={styles.left}>
-        //                     <h2 className={styles.title2}>
-        //                         Share your meals
-        //                     </h2>
-        //                     <p className={styles.phrase}>
-        // Demonstrate your proficiency and passion for cooking by showcasing your culinary skills and hobbies. Elevate your culinary endeavors into a matured business venture.</p>
-        // <button className={styles.button}>
-        //                 Make a Request
-        //              </button>
-        //                 </div>
-        //             </div>
-        //         </div>
-
         <div className={style.container}>
 
             <div className={style.image}>

@@ -137,5 +137,8 @@
     width: 100%;
     height: 15rem;
   }
+  .title{
+    font-size: 1.8rem;
+  }
 
  }

@@ -18,7 +18,7 @@ export default function Request() {
         <>
         <h1  className={style.title}>Join us as a Cook </h1>
         <div className={style.section}>
-            <h2>
+            <h2 className={style.title2}>
                 Love to cook?
             </h2>
             <h3>Wanna grow your business?</h3>

@@ -11,7 +11,7 @@ const HeroSection = () => {
       <div className={Styles.left}>
       <p className={Styles.phrase}>
   Grandma's kitchen, 
-  <span style={{ color: "#D0766A",fontSize:"4rem" }}> heartfelt </span>
+  <span  className={Styles.spanPhrase}> heartfelt </span>
   meal
 </p>
         <div className={Styles.SloganContainer}>
@@ -35,7 +35,7 @@ const HeroSection = () => {
             nav("/meals");
           }}
         >
-          Discover products
+          Discover Meals
         </Button>
       </div>
     </header>

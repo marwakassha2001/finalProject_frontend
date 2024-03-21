@@ -10,6 +10,9 @@ flex-direction: row;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
+    gap: 1.5rem;
+    justify-content: start;
 }
 
 .title{
@@ -28,6 +31,7 @@ flex-direction: row;
     margin-left: 3rem;
     margin-top: -1.7rem;
     flex-direction: column;
+    width:100%
 }
 .sidebar{
    width: 15%; 
@@ -83,7 +87,7 @@ flex-direction: row;
             width: 100%; 
          }
          .titleCard{
-           margin-left: 0;
+           margin-left: 0.2rem;
         }
 
  }

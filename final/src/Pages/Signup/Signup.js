@@ -49,7 +49,7 @@ const Signup = () => {
 
   useEffect(() => {
     if (success) {
-      // toast.success('Logged in Successfuly')
+      toast.success('Logged in Successfuly')
       console.log("sign up  Successfuly");
     }
   }, [success]);
@@ -68,7 +68,7 @@ const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
     if (!firstName || !lastName || !email || !password || !phoneNumber) {
-      console.log("All fields are required");
+      showToast("All fields are required");
       setLoading(false);
       return;
     }
@@ -80,7 +80,7 @@ const submitHandler = async (e) => {
     if (!isValidEmail) {
       setEmailError(" Please enter a valid email address");
       setLoading(false);
-      console.log("Invalid email address");
+      showToast("Invalid email address");
     }
 
     if (!isValidPassword) {
@@ -88,7 +88,7 @@ const submitHandler = async (e) => {
         "Password must be at least 8 characters long and contain at least one letter and one number"
       );
       setLoading(false);
-      console.log("Invalid password");
+      showToast("Invalid password");
       return;
     }
 
@@ -110,7 +110,7 @@ const submitHandler = async (e) => {
     } catch (error) {
       console.log(error);
       setLoading(false);
-      // showToast('Error logging in');
+      showToast('Error logging in');
     }
   };
 

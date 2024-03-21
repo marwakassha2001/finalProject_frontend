@@ -9,7 +9,6 @@ import { toast, ToastContainer } from "react-toastify";
 import { NavLink } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import useApi from "../../Hooks/UseApi";
-// import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -34,7 +33,7 @@ function Login() {
 
   useEffect(() => {
     if (success) {
-      console.log("Logged in Successfuly");
+      toast.success("Logged in Successfuly");
     }
   }, [success]);
 
@@ -43,7 +42,7 @@ function Login() {
     setLoading(true);
 
     if (!email || !password) {
-      console.log("Please enter both email and password");
+      showToast("Please enter both email and password");
       setLoading(false);
       return;
     }
@@ -59,18 +58,18 @@ function Login() {
         await fetchUserData();
         setLoading(false);
         setSuccess(true);
-        console.log("Logged in successfully");
+        showToast("Logged in successfully");
         navigate("/home", { state: { success: true } });
       } else {
-        console.log("Email does not exist or Wrong Password");
+        showToast("Email does not exist or Wrong Password");
         setLoading(false);
       }
     } catch (error) {
       // Handle specific errors based on status code, if needed
       if (error.response && error.response.status === 401) {
-        console.log("Incorrect email or password");
+        showToast("Incorrect email or password");
       } else {
-        console.log("Error logging in");
+        showToast("Error logging in");
       }
 
       setLoading(false);

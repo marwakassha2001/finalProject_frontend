@@ -19,19 +19,43 @@ export default function CardCheckout({ totalPrice, cartItems }) {
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const [delevery, setDelevery] = useState(2);
   const [openNote, setOpenNote] = useState(false);
+  const { apiCall, error } = useApi();
 
 
   const SendOrder = async (e) => {
-    localStorage.removeItem("cart");
-    toast.success("Order sent Successfully", {
-      autoClose: 6000, // Adjust the duration (in milliseconds) as needed
-    });
-    toast.success("Items removed from your cart", {
-      autoClose: 6000, // Adjust the duration (in milliseconds) as needed
-    });
-    setCartItems([]);
-    setCartItemCount(null);
+    e.preventDefault();
+    if (!user) {
+      setOpenNote(true);
+      return;
+    } else {
+      try {
+        await apiCall({
+          method: "post",
+          url: "/order",
+          data: {
+            userId: user.id,
+            address: address,
+            phone:phone,
+            orderDetails: cartItems,
+            deliveryFee: delevery,
+          },
+        });
+
+        if (error) {
+          toast.error("An error occured, order not sent !!");
+        } else {
+          localStorage.removeItem("cart");
+          toast.success("Order sent Successfuly ");
+          toast.success("Items removed from your cart ");
+          setCartItems([]);
+          setCartItemCount(null)
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
   return (
     <Box
@@ -81,11 +105,12 @@ export default function CardCheckout({ totalPrice, cartItems }) {
               onChange={(e) => setPhone(e.target.value)}
             />
             <p>
+            Delivery Fees: ${delevery} All around Tripoli
             </p>
           </div>
           <div className={styles.totalPrice}>
             <p>Total Price</p>
-            <div>${(totalPrice + selectedPrice).toFixed(2)}</div>
+            <div>${(totalPrice + delevery).toFixed(2)}</div>
           </div>
           <div className={styles.buttonContainer}>
             <Button

@@ -21,6 +21,12 @@
     font-weight: bold;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.spanPhrase {
+  color: #D0766A;
+  font-size: 4rem;
+}
+
 .phraseDesc{
     font-size: 1.3rem;
     font-family:fantasy;
@@ -33,9 +39,9 @@
   
   .left{
     width: 40%;
-    height: 15rem;
+    height: 33rem;
     padding-left: 4rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 
   
@@ -105,6 +111,9 @@
       padding-left: 0;
       /* justify-content: space-evenly; */
     }
+    .left{
+      padding-left: 0;
+  }
   }
   
   @media screen and (max-width : 350px ) {
@@ -112,6 +121,12 @@
       height: 8rem;
     }
     .phrase{
-        font-size: 3rem;
+        font-size: 2.6rem;
     }
+    .left{
+      padding-left: 0;
   }
+  .spanPhrase{
+    font-size: 2.6rem;
+  }
+}

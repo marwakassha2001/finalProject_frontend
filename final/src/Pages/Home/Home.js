@@ -8,6 +8,7 @@ import ChefCard from '../../Components/BestCook/ChefCard'
 import Request from '../../Components/Request/Request.js'
 import AboutSection from '../../Components/AboutSection/About '
 import HeroSection from '../../Components/Hero/Hero'
+import OurMession from '../../Components/OurMession/OurMession'
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
                 <CategoryCard/>
             {/* <Testimonial/> */}
             {/* <ChefCard/> */}
+            <OurMession/>
             <Request/>
             </div>
   )

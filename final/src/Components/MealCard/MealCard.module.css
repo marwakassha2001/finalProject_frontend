@@ -66,5 +66,59 @@ padding-left: 0.5rem;
     align-items: center;
     justify-content: center;
 }
+.cardMeal{
+    width: 100%;
+}
 
 
+/* @media screen and (max-width : 1200px) {
+    .cardMeal{
+        width: 24rem;
+    }
+
+}
+
+@media screen and (max-width : 960px) {
+
+    .cardMeal{
+        width: 20rem;
+    }
+}
+
+@media screen and (max-width : 690px) {
+
+    .cardMeal{
+        width: 18rem;
+    }
+
+}
+
+@media screen and (max-width: 460px) {
+
+    .cardMeal{
+        width: 15rem;
+    }
+
+}
+
+@media screen and (max-width : 350px ) {
+    .cardMeal{
+        width: 14rem;
+    }
+}
+
+
+
+@media screen and (max-width : 300px ) {
+    .cardMeal{
+        width: 11rem;
+    }
+
+}
+
+@media screen and (max-width : 220px ) {
+    .cardMeal{
+        width: 10rem;
+    }
+
+} */

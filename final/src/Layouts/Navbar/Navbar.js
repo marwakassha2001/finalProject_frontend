@@ -193,7 +193,7 @@ function Navbar() {
                   {profOpen === true && (
                     <div className={Styles.profileDiv}>
                       <ul className={Styles.profile}>
-                        {user.role === "Admin" && (
+                        {user.role === "Cook" && (
                           <li className={Styles.profileLi}>
                             <Button
                               variant="outlined"
@@ -333,19 +333,6 @@ function Navbar() {
                 About Us
               </NavLink>
             </li>
-            {/* 
-            <li>
-              <div className={Styles.languageSwitcher}>
-                <select
-                  value={selectedLanguage}
-                  onChange={handleLanguageChange}
-                >
-                  <option value="en">English</option>
-                  <option value="ar">العربية</option>
-                </select>
-              </div>
-            </li> */}
-
             {!user && (
               <li>
                 <Stack
@@ -414,7 +401,7 @@ function Navbar() {
                 {profOpen === true && (
                   <div className={Styles.profileDiv2}>
                     <ul className={Styles.profile2}>
-                      {user.role === "Admin" && (
+                      {user.role === "Cook" && (
                         <li className={Styles.profileLi2}>
                           <Button
                             variant="outlined"

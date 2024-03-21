@@ -15,7 +15,7 @@ const ProfilePage = () => {
   async function getCook() {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_BACKEND_ENDPOINT}user/${id}`
+        `${process.env.REACT_APP_BACKEND_ENDPOINT}user/profile/${id}`
       );
       if (response && response.data) {
         setCook(response.data);

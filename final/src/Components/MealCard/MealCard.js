@@ -29,7 +29,7 @@ const MealCard = ({image,price,slug, title,cook,city,imagecook,category}) => {
             height="265"
             src={image}
             alt="Meal"
-            sx={{ objectFit: 'cover' ,width:330,paddingBottom:"0.5rem"}}
+            sx={{ objectFit: 'cover' ,paddingBottom:"0.5rem"}}
           />
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', }}>
             <Rating
