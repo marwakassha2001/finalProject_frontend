@@ -1,5 +1,5 @@
 .pageWrapper{
-width: 80%;
+width: 90%;
 margin: 0 auto;
 gap: 2%;
 display: flex;
@@ -8,13 +8,13 @@ flex-direction: row;
 }
 
 .allPageMeal{
-width: 90%;
+width: 100%;
 }
 .mealscard{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* width: 100%; */
+    width: 100%;
     /* gap: 1.5rem; */
     justify-content: center;
 }
