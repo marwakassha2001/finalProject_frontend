@@ -9,7 +9,7 @@ export default function Loading() {
       justifyContent: "center", // Center horizontally
       alignItems: "center", // Center vertically
       marginLeft:"50rem",
-      marginTop:"20rem"
+      marginTop:"10rem"
     }}
 >
       <CircularProgress style={{ color: "#b55d4e" }} />

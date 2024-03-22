@@ -3,8 +3,8 @@
     margin:auto;
     display: flex;
     flex-direction: column;
-    height: 65vh;
-    margin-top: 7rem;
+    height: 75vh;
+    margin-top: 4rem;
     row-gap: 3rem;
 }
 

@@ -295,7 +295,7 @@ function Navbar() {
                   isPending ? "pending" : isActive ? Styles.active : ""
                 }
               >
-                meals
+                Meals
               </NavLink>
             </li>
             <li>

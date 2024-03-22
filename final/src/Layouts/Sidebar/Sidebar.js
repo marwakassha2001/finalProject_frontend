@@ -153,7 +153,7 @@ console.log(mealsData,'helllooo')
             <Reveal>
   <section className={StyleProducts.searchArticle}>
     <article>
-      <h3>Cook</h3>
+      <h3 className={style.titleside}>Cook</h3>
 
       <Stack
         className={StyleProducts.stack}
@@ -193,12 +193,13 @@ console.log(mealsData,'helllooo')
             <Reveal>
               <section className={StyleProducts.categoryArticle}>
                 <article>
-                  <h3>Categories</h3>
+                  <h3 className={style.titleside}>Categories</h3>
                   <div className={StyleProducts.checkBoxContainer}>
                   {categoriesData.map((category) => (
                 <div
                   key={category._id}
                   className={StyleProducts.checkBoxLine}
+                  style={{ marginBottom: '10px' ,marginLeft:'8px'}}
                 >
                   <input
                     type="checkbox"
@@ -211,7 +212,7 @@ console.log(mealsData,'helllooo')
                       handleCheckboxChange(e, category._id)
                     }
                   />
-                  <label htmlFor={category.name}>{category.name}</label>
+                  <label htmlFor={category.name} style={{ fontFamily: 'Arial, sans-serif'}}>{category.name}</label>
                 </div>
               ))}
                   </div>

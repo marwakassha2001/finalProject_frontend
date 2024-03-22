@@ -67,7 +67,9 @@ export default function Meals() {
     </div>
   ))
 ) : (
+  <div style={{ marginTop: '-10rem', marginLeft: '-50rem' }}>
   <Loading/>
+</div>
 )}
           </div>
         </div>

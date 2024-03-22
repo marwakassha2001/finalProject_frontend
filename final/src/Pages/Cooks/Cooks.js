@@ -62,7 +62,9 @@ console.log(cooks)
                 <p className={style.title}> Cooks</p>
               </h1>
         {isLoading ? (
-          <Loading/>
+      <div style={{ marginTop: '-10rem', marginLeft: '-50rem' }}>
+      <Loading/>
+    </div>
         ) : (
             <div className={style.mealscard}>
               {cooks.map((cook, i) => (
