@@ -8,6 +8,7 @@ import React from 'react'
 import Meals from "../Pages/Meals/Meals.js";
 import MealDetails from "../Pages/MealDetails/MealDetails.js";
 import Cart from "../Pages/Cart/Cart.js";
+import DashMeals from "../Pages/dashboard/dashboard.js";
 import ByCategory from "../Pages/ByCategory/ByCategory.js"
 import Login from "../Pages/Login/Login.js"
 import Signup from "../Pages/Signup/Signup.js";
@@ -17,6 +18,7 @@ import ContactUs from "../Pages/Contact/Contact.js";
 import About from "../Pages/About/About.js";
 import ProfilePage from "../Pages/Profile/Profile.js";
 import Request from "../Pages/RequestForm/RequestForm.js";
+
 
 const AppRouter = () => {
   return (
@@ -37,9 +39,9 @@ const AppRouter = () => {
         <Route path="/login" exact element={<Login />} />
         <Route path="/request" exact element={<Request />} />
         <Route path="/signUp" exact element={<Signup/>} />
-      </Route>
+        <Route path="/dashboard" exact element={<DashMeals/>} />
 
-      <Route path="/hero" element={<Hero1 />} />
+      </Route>
       </Routes>
   )
 }
