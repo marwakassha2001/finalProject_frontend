@@ -9,9 +9,9 @@
     align-items: center;
     flex-direction: column;
 }
-h1{
+.title2{
     display: flex;
-    font-family: url(../../Assets/fonts/DancingScript-Bold.ttf);
+    font-family:Arial, Helvetica, sans-serif;
     justify-content: center;
     align-items: center;
     width: 90%;
@@ -34,16 +34,21 @@ h1{
     word-wrap: break-word;
     width: 100%;
     display: flex;
+    font-family:Arial, Helvetica, sans-serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
+}
+.minititle{
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .title{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family:Arial, Helvetica, sans-serif;
     font-size:2.8rem;
     color:#B55D51 ;
     font-weight: bolder;

@@ -21,7 +21,7 @@ export default function Request() {
             <h2 className={style.title2}>
                 Love to cook?
             </h2>
-            <h3>Wanna grow your business?</h3>
+            <h3 className={style.minititle}>Wanna grow your business?</h3>
             <p className={style.phrase}>Join us and showcase your skills to a hungry audience!
              We'll help you take your passion to the next level.Fill your email and we will contact you.</p>
              <div className={style.inputbtn}>
