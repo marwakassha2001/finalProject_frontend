@@ -109,10 +109,12 @@
     .HeroSection{
       padding: 0;
       padding-left: 0;
+      height: 30rem;
       /* justify-content: space-evenly; */
     }
     .left{
       padding-left: 0;
+      margin-top: -5rem;
   }
   }
   

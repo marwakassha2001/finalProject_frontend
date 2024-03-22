@@ -105,6 +105,11 @@
     width: 100%;
     height: 20rem;
   }
+  .title{
+    font-size:1.8rem;
+
+}
+
  }
  
  @media screen and (max-width : 350px ) {
@@ -139,7 +144,11 @@
     height: 18rem;
   }
   .title{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+  }
+  .img{
+    width: 100%;
+    height: 90%;
   }
 
  }
